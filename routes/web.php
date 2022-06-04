@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArenaController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -15,9 +16,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('welcome');
 });
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
-});
+// Route::get('/home', function () {
+//     return view('admin.arenas.index');
+// });
 Auth::routes();
+
+Route::resource('/arena', ArenaController::class);
