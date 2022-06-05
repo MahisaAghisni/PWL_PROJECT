@@ -23,12 +23,12 @@
                 </div>
             </div>
             <div class="card-body">
-                <form action="/arena" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('arena.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <div class="form-group">
-                        <label for="id">Nomor</label>
+                    {{-- <div class="form-group">
+                        <label for="id">Id</label>
                         <input type="text" name="id" class="form-control" id="id" aria-describedby="id">
-                    </div>
+                    </div> --}}
                     <div class="form-group">
                         <label for="price">Harga</label>
                         <input type="text" name="price" class="form-control" id="price" aria-describedby="price">
