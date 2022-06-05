@@ -30,34 +30,28 @@
                     @csrf
                     @method('put')
                     <div class="form-group">
-                        <label for="number">{{ __('Nomer') }}</label>
-                        <input type="text" class="form-control" id="number" placeholder="{{ __('number') }}"
-                            name="number" value="{{ old('number', $arena->number) }}" />
+                        <label for="id">id</label>
+                        <input type="text" class="form-control" id="id" value="{{ $arena->id }}" aria- describedby="id">
                     </div>
                     <div class="form-group">
-                        <label for="price">{{ __('Harga per Jam') }}</label>
-                        <input type="number" class="form-control" id="price" placeholder="{{ __('price') }}"
-                            name="price" value="{{ old('price', $arena->price) }}" />
-                    </div>
-                    <div class="form-group {{ $errors->has('photo') ? 'has-error' : '' }}">
-                        <label for="photo">Photo</label>
-                        <div class="needsclick dropzone" id="photo-dropzone">
-
-                        </div>
-                        @if ($errors->has('photo'))
-                            <em class="invalid-feedback">
-                                {{ $errors->first('photo') }}
-                            </em>
-                        @endif
+                        <label for="price">Harga</label>
+                        <input type="number" class="form-control" id="price" value="{{ $arena->price }}" aria-
+                            describedby="price">
                     </div>
                     <div class="form-group">
-                        <label for="status">{{ __('Status') }}</label>
+                        <label for="image">Gambar</label>
+                        <input type="file" class="form-control" required="required" name="image"
+                            value="{{ $arena->image }}">
+                        <img width="150px" src="{{ asset('storage/' . $arena->image) }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Status</label>
                         <select name="status" id="status" class="form-control">
                             <option {{ $arena->status == 'Active' ? 'selected' : null }} value="1">Active</option>
                             <option {{ $arena->status == 'In Active' ? 'selected' : null }} value="0">In Active</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">{{ __('Save') }}</button>
+                    <button type="submit" class="btn btn-primary btn-block">Save</button>
                 </form>
             </div>
         </div>

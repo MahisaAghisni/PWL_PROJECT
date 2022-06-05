@@ -9,11 +9,11 @@
                     {{ __('arena') }}
                 </h6>
                 <div class="ml-auto">
-                    <a href="{{ route('admin.arenas.create') }}" class="btn btn-primary">
+                    <a href="/arena/create" class="btn btn-primary">
                         <span class="icon text-white-50">
                             <i class="fa fa-plus"></i>
                         </span>
-                        <span class="text">{{ __('New arena') }}</span>
+                        <span class="text">New Arena</span>
                     </a>
                 </div>
             </div>
@@ -41,13 +41,6 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $arena->number }}</td>
                                     <td>Rp{{ number_format($arena->price, 2, ',', '.') }}</td>
-                                    <td>
-                                        {{-- @if ($arena->photo)
-                                            <a href="{{ $arena->photo->getUrl() }}" target="_blank">
-                                                <img src="{{ $arena->photo->getUrl() }}" width="50px" height="50px">
-                                            </a>
-                                        @endif --}}
-                                    </td>
                                     <td>{{ $arena->status }}</td>
                                     <td>
                                         <div class="btn-group btn-group-sm">
