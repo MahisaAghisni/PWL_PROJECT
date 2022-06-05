@@ -21,22 +21,21 @@
             <div class="card-header">
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800">{{ __('create arena') }}</h1>
-                    <a href="{{ route('admin.arenas.index') }}"
-                        class="btn btn-primary btn-sm shadow-sm">{{ __('Go Back') }}</a>
+                    <a href="/arena" class="btn btn-primary btn-sm shadow-sm">{{ __('Go Back') }}</a>
                 </div>
             </div>
             <div class="card-body">
-                <form action="{{ route('admin.arenas.update', $arena->id) }}" method="POST" enctype="multipart/form-data">
+                <form action="/arena/{{ $arena->id }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    @method('put')
-                    <div class="form-group">
+                    @method('PUT')
+                    {{-- <div class="form-group">
                         <label for="id">id</label>
                         <input type="text" class="form-control" id="id" value="{{ $arena->id }}" aria- describedby="id">
-                    </div>
+                    </div> --}}
                     <div class="form-group">
                         <label for="price">Harga</label>
-                        <input type="number" class="form-control" id="price" value="{{ $arena->price }}" aria-
-                            describedby="price">
+                        <input type="price" name="price" class="form-control" id="price" value="{{ $arena->price }}"
+                            aria- describedby="price">
                     </div>
                     <div class="form-group">
                         <label for="image">Gambar</label>
