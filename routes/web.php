@@ -18,9 +18,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-// Route::get('/home', function () {
-//     return view('admin.arenas.index');
-// });
+Route::get('/home', function () {
+    return view('layouts.main');
+});
 Auth::routes();
 
 Route::resource('/arena', ArenaController::class);

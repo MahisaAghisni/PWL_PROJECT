@@ -17,7 +17,6 @@ class ArenaController extends Controller
     {
         //
         $arenas = Arena::paginate(3);
-
         return view('admin.arenas.index', compact('arenas'));
     }
 
@@ -43,23 +42,38 @@ class ArenaController extends Controller
     {
         //
 
-        $request->validate([
-            'id' => 'required',
+        $images = [
             'price' => 'required',
-            'image' => 'required',
+            'image' => 'image|file',
             'status' => 'required',
-        ]);
+        ];
+        $validateData = $request->validate($images);
 
-        $arena = new Arena;
-        $arena->id = $request->get('id');
-        $arena->price = $request->get('price');
-        $arena->image = $request->file('image')->store('images', 'public');
-        $arena->status = $request->get('status');
+        if ($request->file('image')) {
+            $validateData['image'] = $request->file('image')->store('arena', 'public');
+        }
 
-        return redirect()->route('admin.arenas.index')->with([
-            'message' => 'successfully created !',
-            'alert-type' => 'success'
-        ]);
+        // dd($validateData);
+        Arena::create($validateData);
+        return redirect()->route('arena.index')->with('success', 'Arena Bershasil Ditambahkan');
+
+        // $request->validate([
+        //     'id' => 'required',
+        //     'price' => 'required',
+        //     'image' => 'required',
+        //     'status' => 'required',
+        // ]);
+
+        // $arena = new Arena;
+        // $arena->id = $request->get('id');
+        // $arena->price = $request->get('price');
+        // $arena->image = $request->file('image')->store('images', 'public');
+        // $arena->status = $request->get('status');
+
+        // return redirect()->route('index.arenas.index')->with([
+        //     'message' => 'successfully created !',
+        //     'alert-type' => 'success'
+        // ]);
     }
 
     /**
