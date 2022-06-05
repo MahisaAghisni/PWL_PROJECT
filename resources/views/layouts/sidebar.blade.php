@@ -1,8 +1,9 @@
     <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-            {{-- logo corona --}}
+            {{-- logo --}}
             <a class="sidebar-brand brand-logo" href="index.html"><img
-                    src="{{ asset('template/assets/images/futsal.png') }}" alt="logo" /></a>
+                    src="{{ asset('template/assets/images/auth/futsal.png') }}" width="100px" height="100px"
+                    alt="logo" /></a>
             {{-- <a class="sidebar-brand brand-logo-mini" href="index.html"><img
                     src="{{ asset('template/assets/images/logo-mini.svg') }}" alt="logo" /></a> --}}
         </div>
