@@ -41,15 +41,14 @@
                                     <td>
                                         <div class="btn-group btn-group-sm">
                                             <a href="{{ route('arena.edit', $arena->id) }}" class="btn btn-info">
-                                                <i class="fa fa-pencil-alt"></i>
+                                                <i class="fa fa-pencil-alt"> Edit </i>
                                             </a>
-                                            <form onclick="return confirm('are you sure ? ')" class="d-inline"
-                                                action="{{ route('arena.destroy', $arena->id) }}" method="POST">
+                                            <form action="/arena/{{ $arena->id }}" class="d-inline" method="POST">
                                                 @csrf
                                                 @method('delete')
                                                 <button class="btn btn-danger"
                                                     style="border-top-left-radius: 0;border-bottom-left-radius: 0;">
-                                                    <i class="fa fa-trash"></i>
+                                                    <i class="fa fa-trash">Delete</i>
                                                 </button>
                                             </form>
                                         </div>
