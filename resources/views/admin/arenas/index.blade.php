@@ -19,36 +19,32 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered table-striped table-hover datatable datatable-arena" cellspacing="0"
-                        width="100%">
+                    <table class="table table-bordered table-striped table-hover" cellspacing="0" width="100%">
                         <thead>
                             <tr>
-                                <th width="10">
-
-                                </th>
                                 <th>No</th>
-                                <th>Harga</th>
                                 <th>Gambar</th>
+                                <th>Harga</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($arenas as $arena)
-                                <tr data-entry-id="{{ $arena->id }}">
-                                    <td>
-                                    </td>
+                                <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $arena->number }}</td>
+                                    {{-- <td>{{ $arena->number }}</td> --}}
+                                    <td><img width="100px" height="100px" src="{{ asset('storage/' . $arena->image) }}">
+                                    </td>
                                     <td>Rp{{ number_format($arena->price, 2, ',', '.') }}</td>
                                     <td>{{ $arena->status }}</td>
                                     <td>
                                         <div class="btn-group btn-group-sm">
-                                            <a href="{{ route('admin.arenas.edit', $arena->id) }}" class="btn btn-info">
+                                            <a href="{{ route('arena.edit', $arena->id) }}" class="btn btn-info">
                                                 <i class="fa fa-pencil-alt"></i>
                                             </a>
                                             <form onclick="return confirm('are you sure ? ')" class="d-inline"
-                                                action="{{ route('admin.arenas.destroy', $arena->id) }}" method="POST">
+                                                action="{{ route('arena.destroy', $arena->id) }}" method="POST">
                                                 @csrf
                                                 @method('delete')
                                                 <button class="btn btn-danger"
