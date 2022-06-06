@@ -13,6 +13,7 @@ class arena extends Model
     public $timestamps = false;
     protected $primaryKey = 'id'; // Memanggil isi DB Dengan primarykey
 
+
     protected $fillable = [
         'id',
         'price',

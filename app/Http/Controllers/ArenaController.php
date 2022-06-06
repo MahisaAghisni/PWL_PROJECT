@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Arena;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class ArenaController extends Controller
@@ -16,8 +17,8 @@ class ArenaController extends Controller
     public function index()
     {
         //
-        $arenas = Arena::paginate(3);
-        return view('admin.arenas.index', compact('arenas'));
+        $posts = Arena::orderBy('id')->paginate(3);
+        return view('admin.arenas.index', ['posts' => $posts]);
     }
 
     /**

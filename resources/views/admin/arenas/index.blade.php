@@ -30,7 +30,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($arenas as $arena)
+                            @foreach ($posts as $arena)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     {{-- <td>{{ $arena->number }}</td> --}}
@@ -61,6 +61,23 @@
                             @endforeach
                         </tbody>
                     </table>
+                </div>
+            </div>
+            <div class="paginate">
+                <div class="container">
+                    <div class="row">
+                        {{-- <div class="detail-data col-md-12">
+                            <p>Page : {!! $arena->currentPage() !!} <br />
+                                Jumlah Arena : {!! $arena->total() !!} <br />
+                                Arena Per Halaman : {!! $arena->perPage() !!} <br />
+                            </p>
+                        </div> --}}
+                        <div class="mx-auto">
+                            <div class="paginate-button col-md-12">
+                                {{ $posts->links() }}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

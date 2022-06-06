@@ -29,7 +29,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php $__currentLoopData = $arenas; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $arena): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <?php $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $arena): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <tr>
                                     <td><?php echo e($loop->iteration); ?></td>
                                     
@@ -57,6 +57,19 @@
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </tbody>
                     </table>
+                </div>
+            </div>
+            <div class="paginate">
+                <div class="container">
+                    <div class="row">
+                        
+                        <div class="mx-auto">
+                            <div class="paginate-button col-md-12">
+                                <?php echo e($posts->links()); ?>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
