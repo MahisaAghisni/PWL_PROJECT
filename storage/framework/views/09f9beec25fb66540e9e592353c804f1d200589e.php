@@ -65,6 +65,7 @@ unset($__errorArgs, $__bag); ?>
 
                                     </button>
                                 </div>
+                                <p class="sign-up">Don't have an Account?<a href="/register"> Sign Up</a></p>
                             </form>
                         </div>
                     </div>
