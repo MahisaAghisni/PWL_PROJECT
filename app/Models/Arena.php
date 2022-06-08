@@ -18,14 +18,5 @@ class arena extends Model
         'id',
         'price',
         'image',
-        'status',
     ];
-
-    public function getStatusAttribute($input)
-    {
-        return [
-            0 => 'In Active',
-            1 => 'Active'
-        ][$input];
-    }
 }
