@@ -33,7 +33,6 @@
                             @foreach ($posts as $arena)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    {{-- <td>{{ $arena->number }}</td> --}}
                                     <td><img width="100px" height="100px" src="{{ asset('storage/' . $arena->image) }}">
                                     </td>
                                     <td>Rp{{ number_format($arena->price, 2, ',', '.') }}</td>
