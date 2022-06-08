@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArenaController;
+use App\Http\Controllers\JenisController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -24,3 +25,9 @@ Route::get('/home', function () {
 Auth::routes();
 
 Route::resource('/arena', ArenaController::class);
+
+Route::controller(JenisController::class)->middleware('auth')->group(function () {
+    Route::get('/admin/jenis', 'index')->name('admin.jenis.index');
+    Route::get('/admin/jenis/create', 'create')->name('admin.jenis.create');
+    Route::post('/admin/jenis/store', 'store')->name('admin.jenis.store');
+});
