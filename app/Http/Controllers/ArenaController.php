@@ -46,7 +46,6 @@ class ArenaController extends Controller
         $images = [
             'price' => 'required',
             'image' => 'image|file',
-            'status' => 'required',
         ];
         $validateData = $request->validate($images);
 
@@ -98,7 +97,6 @@ class ArenaController extends Controller
         $rules = [
             'price' => 'required',
             'image' => 'required',
-            'status' => 'required',
         ];
 
         $validateData = $request->validate($rules);

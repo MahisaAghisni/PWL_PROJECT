@@ -25,21 +25,19 @@
                                 <th>No</th>
                                 <th>Gambar</th>
                                 <th>Harga</th>
-                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($posts as $arena)
                                 <tr>
-                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $arena->id }}</td>
                                     <td><img width="100px" height="100px" src="{{ asset('storage/' . $arena->image) }}">
                                     </td>
                                     <td>Rp{{ number_format($arena->price, 2, ',', '.') }}</td>
-                                    <td>{{ $arena->status }}</td>
                                     <td>
                                         <div class="btn-group btn-group-sm">
-                                            <a href="{{ route('arena.edit', $arena->id) }}" class="btn btn-info">
+                                            <a href="{{ route('jenis.edit', $arena->id) }}" class="btn btn-info">
                                                 <i class="fa fa-pencil-alt"> Edit </i>
                                             </a>
                                             <form action="/arena/{{ $arena->id }}" class="d-inline" method="POST">

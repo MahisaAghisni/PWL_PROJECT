@@ -37,13 +37,6 @@
                         <label for="image">gambar</label>
                         <input type="file" class="form-control" required="required" name="image">
                     </div>
-                    <div class="form-group">
-                        <label for="status">Status</label>
-                        <select name="status" id="status" class="form-control">
-                            <option value="1">Active</option>
-                            <option value="0">In Active</option>
-                        </select>
-                    </div>
                     <button type="submit" class="btn btn-primary btn-block">Submit</button>
                 </form>
             </div>
