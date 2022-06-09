@@ -8,7 +8,7 @@
 
                 </h6>
                 <div class="ml-auto">
-                    <a href="/arena/create" class="btn btn-primary">
+                    <a href="/admin/arena/create" class="btn btn-primary">
                         <span class="icon text-white-50">
                             <i class="fa fa-plus"></i>
                         </span>
@@ -30,16 +30,17 @@
                         <tbody>
                             <?php $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $arena): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <tr>
-                                    <td><?php echo e($arena->id); ?></td>
+                                    <td><?php echo e($loop->iteration); ?></td>
                                     <td><img width="100px" height="100px" src="<?php echo e(asset('storage/' . $arena->image)); ?>">
                                     </td>
                                     <td>Rp<?php echo e(number_format($arena->price, 2, ',', '.')); ?></td>
                                     <td>
                                         <div class="btn-group btn-group-sm">
-                                            <a href="<?php echo e(route('jenis.edit', $arena->id)); ?>" class="btn btn-info">
+                                            <a href="<?php echo e(route('arena.edit', $arena->id)); ?>" class="btn btn-info">
                                                 <i class="fa fa-pencil-alt"> Edit </i>
                                             </a>
-                                            <form action="/arena/<?php echo e($arena->id); ?>" class="d-inline" method="POST">
+                                            <form action="/admin/arena/<?php echo e($arena->id); ?>" class="d-inline"
+                                                method="POST">
                                                 <?php echo csrf_field(); ?>
                                                 <?php echo method_field('delete'); ?>
                                                 <button class="btn btn-danger"

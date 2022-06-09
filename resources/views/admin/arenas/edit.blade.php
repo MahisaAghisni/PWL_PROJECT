@@ -21,11 +21,11 @@
             <div class="card-header">
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800">{{ __('create arena') }}</h1>
-                    <a href="/arena" class="btn btn-primary btn-sm shadow-sm">{{ __('Go Back') }}</a>
+                    <a href="/admin/arena" class="btn btn-primary btn-sm shadow-sm">{{ __('Go Back') }}</a>
                 </div>
             </div>
             <div class="card-body">
-                <form action="/arena/{{ $arena->id }}" method="POST" enctype="multipart/form-data">
+                <form action="/admin/arena/{{ $arena->id }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     {{-- <div class="form-group">
@@ -47,9 +47,5 @@
                 </form>
             </div>
         </div>
-
-
-        <!-- Content Row -->
-
     </div>
 @endsection

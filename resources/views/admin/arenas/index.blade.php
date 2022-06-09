@@ -9,7 +9,7 @@
                     {{ __('arena') }}
                 </h6>
                 <div class="ml-auto">
-                    <a href="/arena/create" class="btn btn-primary">
+                    <a href="/admin/arena/create" class="btn btn-primary">
                         <span class="icon text-white-50">
                             <i class="fa fa-plus"></i>
                         </span>
@@ -31,16 +31,17 @@
                         <tbody>
                             @foreach ($posts as $arena)
                                 <tr>
-                                    <td>{{ $arena->id }}</td>
+                                    <td>{{ $loop->iteration }}</td>
                                     <td><img width="100px" height="100px" src="{{ asset('storage/' . $arena->image) }}">
                                     </td>
                                     <td>Rp{{ number_format($arena->price, 2, ',', '.') }}</td>
                                     <td>
                                         <div class="btn-group btn-group-sm">
-                                            <a href="{{ route('jenis.edit', $arena->id) }}" class="btn btn-info">
+                                            <a href="{{ route('arena.edit', $arena->id) }}" class="btn btn-info">
                                                 <i class="fa fa-pencil-alt"> Edit </i>
                                             </a>
-                                            <form action="/arena/{{ $arena->id }}" class="d-inline" method="POST">
+                                            <form action="/admin/arena/{{ $arena->id }}" class="d-inline"
+                                                method="POST">
                                                 @csrf
                                                 @method('delete')
                                                 <button class="btn btn-danger"
