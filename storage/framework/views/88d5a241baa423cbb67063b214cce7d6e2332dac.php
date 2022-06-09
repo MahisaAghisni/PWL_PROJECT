@@ -38,13 +38,6 @@
                             value="<?php echo e($arena->image); ?>">
                         <img width="150px" src="<?php echo e(asset('storage/' . $arena->image)); ?>">
                     </div>
-                    <div class="form-group">
-                        <label for="status">Status</label>
-                        <select name="status" id="status" class="form-control">
-                            <option <?php echo e($arena->status == 'Active' ? 'selected' : null); ?> value="1">Active</option>
-                            <option <?php echo e($arena->status == 'In Active' ? 'selected' : null); ?> value="0">In Active</option>
-                        </select>
-                    </div>
                     <button type="submit" class="btn btn-primary btn-block">Save</button>
                 </form>
             </div>

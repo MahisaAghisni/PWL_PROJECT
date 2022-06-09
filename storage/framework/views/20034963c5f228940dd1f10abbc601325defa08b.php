@@ -16,8 +16,8 @@
         <div class="card shadow">
             <div class="card-header">
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800"><?php echo e(__('create arena')); ?></h1>
-                    <a href="/arena" class="btn btn-primary btn-sm shadow-sm">Go Back</a>
+                    <h1 class="h3 mb-0 text-gray-800"><?php echo e(__('create jenis')); ?></h1>
+                    <a href="/jenis" class="btn btn-primary btn-sm shadow-sm">Go Back</a>
                 </div>
             </div>
             <div class="card-body">

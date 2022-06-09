@@ -24,21 +24,19 @@
                                 <th>No</th>
                                 <th>Gambar</th>
                                 <th>Harga</th>
-                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $arena): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <tr>
-                                    <td><?php echo e($loop->iteration); ?></td>
+                                    <td><?php echo e($arena->id); ?></td>
                                     <td><img width="100px" height="100px" src="<?php echo e(asset('storage/' . $arena->image)); ?>">
                                     </td>
                                     <td>Rp<?php echo e(number_format($arena->price, 2, ',', '.')); ?></td>
-                                    <td><?php echo e($arena->status); ?></td>
                                     <td>
                                         <div class="btn-group btn-group-sm">
-                                            <a href="<?php echo e(route('arena.edit', $arena->id)); ?>" class="btn btn-info">
+                                            <a href="<?php echo e(route('jenis.edit', $arena->id)); ?>" class="btn btn-info">
                                                 <i class="fa fa-pencil-alt"> Edit </i>
                                             </a>
                                             <form action="/arena/<?php echo e($arena->id); ?>" class="d-inline" method="POST">

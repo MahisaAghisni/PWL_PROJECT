@@ -81,9 +81,8 @@
                 </a>
                 <div class="collapse" id="ui-basic">
                     <ul class="nav flex-column sub-menu">
-                        <li class="nav-item"> <a class="nav-link" href="/arena">Arena</a></li>
-                        <li class="nav-item"> <a class="nav-link"
-                                href="{{ route('admin.jenis.index') }}">Jenis</a></li>
+                        <li class="nav-item"> <a class="nav-link" href="/admin/arena">Arena</a></li>
+                        <li class="nav-item"> <a class="nav-link" href="/admin/jenis">Jenis</a></li>
                     </ul>
                 </div>
             </li>

@@ -50,9 +50,6 @@ class JenisController extends Controller
         ]);
 
         return redirect()->route('admin.jenis.index');
-
-
-
         return redirect()()->route('jenis.index')->with('success', 'Jenis Bershasil Ditambahkan');
     }
 
@@ -65,8 +62,6 @@ class JenisController extends Controller
     public function show($id)
     {
         //
-        $jenis = Jenis::find($id);
-        return view('admin.jenis.show', compact('jenis'));
     }
 
     /**
@@ -93,6 +88,14 @@ class JenisController extends Controller
     {
         //
         $jenis = Jenis::findOrFail($id);
+
+        $jenis->update([
+            'name' => $request->name,
+            'description' => $request->description,
+
+        ]);
+
+        return redirect()->route('jenis.index')->with('status', 'Berhasil mengubah Jenis');
     }
 
     /**
@@ -104,7 +107,7 @@ class JenisController extends Controller
     public function destroy($id)
     {
         //
-        Jenis::find($id)->delete();
-        return redirect()->route('arena.index')->with('success', 'Arena Bershasil Dihapus');
+        Jenis::destroy($id);
+        return redirect()->route('jenis.index')->with('success', 'Jenis Bershasil Dihapus');
     }
 }

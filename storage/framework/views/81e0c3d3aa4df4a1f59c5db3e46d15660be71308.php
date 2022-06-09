@@ -8,11 +8,11 @@
 
                 </h6>
                 <div class="ml-auto">
-                    <a href="<?php echo e(route('admin.jenis.create')); ?>" class="btn btn-primary">
+                    <a href="/jenis/create" class="btn btn-primary">
                         <span class="icon text-white-50">
                             <i class="fa fa-plus"></i>
                         </span>
-                        <span class="text">Tambah Jenis</span>
+                        <span class="text">New Jenis</span>
                     </a>
                 </div>
             </div>
@@ -34,6 +34,21 @@
                                     <td><?php echo e($jenis->nama); ?></td>
                                     <td><?php echo e($jenis->deskripsi); ?></td>
                                     
+                                    <td>
+                                        <div class="btn-group btn-group-sm">
+                                            <a href="<?php echo e(route('jenis.edit', $jenis->id)); ?>" class="btn btn-info">
+                                                <i class="fa fa-pencil-alt"> Edit </i>
+                                            </a>
+                                            <form action="/jenis/<?php echo e($jenis->id); ?>" class="d-inline" method="POST">
+                                                <?php echo csrf_field(); ?>
+                                                <?php echo method_field('delete'); ?>
+                                                <button class="btn btn-danger"
+                                                    style="border-top-left-radius: 0;border-bottom-left-radius: 0;">
+                                                    <i class="fa fa-trash">Delete</i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </td>
                                 </tr>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </tbody>

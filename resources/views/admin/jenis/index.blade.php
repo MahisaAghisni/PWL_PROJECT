@@ -9,11 +9,11 @@
                     {{ __('jenis') }}
                 </h6>
                 <div class="ml-auto">
-                    <a href="{{ route('admin.jenis.create') }}" class="btn btn-primary">
+                    <a href="/jenis/create" class="btn btn-primary">
                         <span class="icon text-white-50">
                             <i class="fa fa-plus"></i>
                         </span>
-                        <span class="text">Tambah Jenis</span>
+                        <span class="text">New Jenis</span>
                     </a>
                 </div>
             </div>
@@ -35,11 +35,22 @@
                                     <td>{{ $jenis->nama }}</td>
                                     <td>{{ $jenis->deskripsi }}</td>
                                     {{-- <td>
-                                        <div class="btn-group btn-group-sm">
-                                            <a href="" class="btn btn-info">
+                                        <div class="btn-group" role="group" aria-label="Basic example">
+                                            <a href="/admin/jenis/{{ $jenis->id }}" class="btn btn-info">
                                                 <i class="fa fa-pencil-alt"> Edit </i>
                                             </a>
-                                            <form action="" class="d-inline" method="POST">
+                                            <a href="/admin/jenis/{{ $jenis->id }}"
+                                                onclick="return confirm('Yakin Hapus data')" class="btn btn-danger btn-sm">
+                                                <i class="fa fa-trash">Delete</i>
+                                            </a>
+                                        </div>
+                                    </td> --}}
+                                    <td>
+                                        <div class="btn-group btn-group-sm">
+                                            <a href="{{ route('jenis.edit', $jenis->id) }}" class="btn btn-info">
+                                                <i class="fa fa-pencil-alt"> Edit </i>
+                                            </a>
+                                            <form action="/jenis/{{ $jenis->id }}" class="d-inline" method="POST">
                                                 @csrf
                                                 @method('delete')
                                                 <button class="btn btn-danger"
@@ -48,7 +59,7 @@
                                                 </button>
                                             </form>
                                         </div>
-                                    </td> --}}
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>

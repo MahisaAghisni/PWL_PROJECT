@@ -24,10 +24,8 @@ Route::get('/home', function () {
 });
 Auth::routes();
 
-Route::resource('/arena', ArenaController::class);
 
-Route::controller(JenisController::class)->middleware('auth')->group(function () {
-    Route::get('/admin/jenis', 'index')->name('admin.jenis.index');
-    Route::get('/admin/jenis/create', 'create')->name('admin.jenis.create');
-    Route::post('/admin/jenis/store', 'store')->name('admin.jenis.store');
+Route::middleware('auth')->group(function () {
+    Route::resource('/admin/jenis', JenisController::class);
+    Route::resource('/admin/arena', ArenaController::class);
 });
