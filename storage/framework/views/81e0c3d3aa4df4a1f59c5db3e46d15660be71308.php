@@ -39,7 +39,8 @@
                                             <a href="<?php echo e(route('jenis.edit', $jenis->id)); ?>" class="btn btn-info">
                                                 <i class="fa fa-pencil-alt"> Edit </i>
                                             </a>
-                                            <form action="/jenis/<?php echo e($jenis->id); ?>" class="d-inline" method="POST">
+                                            <form action="/admin/jenis/<?php echo e($jenis->id); ?>" class="d-inline"
+                                                method="POST">
                                                 <?php echo csrf_field(); ?>
                                                 <?php echo method_field('delete'); ?>
                                                 <button class="btn btn-danger"

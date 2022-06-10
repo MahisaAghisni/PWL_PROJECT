@@ -50,7 +50,8 @@
                                             <a href="{{ route('jenis.edit', $jenis->id) }}" class="btn btn-info">
                                                 <i class="fa fa-pencil-alt"> Edit </i>
                                             </a>
-                                            <form action="/jenis/{{ $jenis->id }}" class="d-inline" method="POST">
+                                            <form action="/admin/jenis/{{ $jenis->id }}" class="d-inline"
+                                                method="POST">
                                                 @csrf
                                                 @method('delete')
                                                 <button class="btn btn-danger"

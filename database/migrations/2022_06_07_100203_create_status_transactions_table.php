@@ -16,8 +16,6 @@ class CreateStatusTransactionsTable extends Migration
         Schema::create('status_transactions', function (Blueprint $table) {
             $table->id();
             $table->string('nama', 255);
-            $table->string('image')->nullable();
-            $table->text('deskripsi')->nullable();
             $table->timestamps();
         });
     }

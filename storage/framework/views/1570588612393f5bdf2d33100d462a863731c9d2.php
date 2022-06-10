@@ -18,11 +18,11 @@
             <div class="card-header">
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800"><?php echo e(__('create jenis')); ?></h1>
-                    <a href="/jenis" class="btn btn-primary btn-sm shadow-sm"><?php echo e(__('Go Back')); ?></a>
+                    <a href="/admin/jenis" class="btn btn-primary btn-sm shadow-sm"><?php echo e(__('Go Back')); ?></a>
                 </div>
             </div>
             <div class="card-body">
-                <form action="/jenis/<?php echo e($jenis->id); ?>" method="POST" enctype="multipart/form-data">
+                <form action="/admin/jenis/<?php echo e($jenis->id); ?>" method="POST" enctype="multipart/form-data">
                     <?php echo csrf_field(); ?>
                     <?php echo method_field('PUT'); ?>
                     <div class="form-group">
