@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('admin.layouts.main')
 
 @section('content')
     <div class="container-fluid">
@@ -9,7 +9,7 @@
                     {{ __('jenis') }}
                 </h6>
                 <div class="ml-auto">
-                    <a href="/jenis/create" class="btn btn-primary">
+                    <a href="{{ route('jenis.create') }}" class="btn btn-primary">
                         <span class="icon text-white-50">
                             <i class="fa fa-plus"></i>
                         </span>
@@ -25,6 +25,7 @@
                                 <th>No</th>
                                 <th>Nama</th>
                                 <th>Deskrpisi</th>
+                                <th>Gambar</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -34,6 +35,7 @@
                                     <td>{{ $jenis->id }}</td>
                                     <td>{{ $jenis->nama }}</td>
                                     <td>{{ $jenis->deskripsi }}</td>
+                                    <td><img src="{{ asset('storage/' . $jenis->images) }}" alt=""></td>
                                     {{-- <td>
                                         <div class="btn-group" role="group" aria-label="Basic example">
                                             <a href="/admin/jenis/{{ $jenis->id }}" class="btn btn-info">

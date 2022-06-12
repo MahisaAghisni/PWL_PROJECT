@@ -18,5 +18,11 @@ class Jenis extends Model
         'id',
         'nama',
         'deskripsi',
+        'images'
     ];
+
+    public function arenas()
+    {
+        return $this->hasMany(Arena::class, 'id');
+    }
 }

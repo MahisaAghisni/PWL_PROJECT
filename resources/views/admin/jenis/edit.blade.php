@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('admin.layouts.main')
 
 @section('content')
     <div class="container-fluid">
@@ -36,6 +36,12 @@
                         <label for="deskripsi">Deskripsi</label>
                         <input type="text" name="deskripsi" class="form-control" id="deskripsi"
                             value="{{ $jenis->deskripsi }}" aria- describedby="deskripsi">
+                    </div>
+                    <div class="form-group">
+                        <label for="images">Gambar</label>
+                        <input type="file" class="form-control" required="required" name="images"
+                            value="{{ $jenis->images }}">
+                        <img width="150px" src="{{ asset('storage/' . $jenis->images) }}">
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">Save</button>
                 </form>
