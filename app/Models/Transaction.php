@@ -9,15 +9,16 @@ class Transaction extends Model
 {
     use HasFactory;
 
-    protected $table = 'transactions'; // Eloquent akan membuat model mahasiswa menyimpan record di tabel transactions
+    protected $table = 'transactions'; // Eloquent akan membuat model mahasiswa menyimpan record di tabel status_transactions
     public $timestamps = false;
     protected $primaryKey = 'id'; // Memanggil isi DB Dengan primarykey
 
-
     protected $fillable = [
+        'users_id',
         'arenas_id',
+        'start_time',
+        'end_time',
         'status_id',
-        'sub_total',
-        'jadwal_id',
+        'sub_total'
     ];
 }
