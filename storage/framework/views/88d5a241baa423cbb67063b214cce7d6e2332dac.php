@@ -27,6 +27,14 @@
                     <?php echo csrf_field(); ?>
                     <?php echo method_field('PUT'); ?>
                     
+                    <label for="exampleFormControlSelect1">Jenis Arena</label>
+                    <select class="form-control" id="jenis_id" name="jenis_id">
+                        <?php $__currentLoopData = $jenisLap; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $jenis): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <option value="<?php echo e($jenis->id); ?>"><?php echo e($arena->jenis_id ? 'selected' : ''); ?></option>
+                            <?php echo e($jenis->nama); ?>
+
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    </select>
                     <div class="form-group">
                         <label for="price">Harga</label>
                         <input type="price" name="price" class="form-control" id="price" value="<?php echo e($arena->price); ?>"
@@ -45,4 +53,4 @@
     </div>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\PWL_PROJECT\resources\views/admin/arenas/edit.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('admin.layouts.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\PWL_PROJECT\resources\views/admin/arenas/edit.blade.php ENDPATH**/ ?>

@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class StatusTransactionsSeeder extends Seeder
 {
@@ -14,5 +15,16 @@ class StatusTransactionsSeeder extends Seeder
     public function run()
     {
         //
+        DB::table('status_transactions')->insert([
+            [
+                'name' => 'Pending',
+            ],
+            [
+                'name' => 'diBooking'
+            ],
+            [
+                'name' => 'selesai'
+            ]
+        ]);
     }
 }

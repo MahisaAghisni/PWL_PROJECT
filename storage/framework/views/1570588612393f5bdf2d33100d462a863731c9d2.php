@@ -35,6 +35,12 @@
                         <input type="text" name="deskripsi" class="form-control" id="deskripsi"
                             value="<?php echo e($jenis->deskripsi); ?>" aria- describedby="deskripsi">
                     </div>
+                    <div class="form-group">
+                        <label for="images">Gambar</label>
+                        <input type="file" class="form-control" required="required" name="images"
+                            value="<?php echo e($jenis->images); ?>">
+                        <img width="150px" src="<?php echo e(asset('storage/' . $jenis->images)); ?>">
+                    </div>
                     <button type="submit" class="btn btn-primary btn-block">Save</button>
                 </form>
             </div>
@@ -46,4 +52,4 @@
     </div>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\PWL_PROJECT\resources\views/admin/jenis/edit.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('admin.layouts.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\PWL_PROJECT\resources\views/admin/jenis/edit.blade.php ENDPATH**/ ?>
