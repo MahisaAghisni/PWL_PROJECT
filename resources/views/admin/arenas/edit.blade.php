@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('admin.layouts.main')
 
 @section('content')
     <div class="container-fluid">
@@ -32,6 +32,13 @@
                         <label for="id">id</label>
                         <input type="text" class="form-control" id="id" value="{{ $arena->id }}" aria- describedby="id">
                     </div> --}}
+                    <label for="exampleFormControlSelect1">Jenis Arena</label>
+                    <select class="form-control" id="jenis_id" name="jenis_id">
+                        @foreach ($jenisLap as $jenis)
+                            <option value="{{ $jenis->id }}">{{ $arena->jenis_id ? 'selected' : '' }}</option>
+                            {{ $jenis->nama }}
+                        @endforeach
+                    </select>
                     <div class="form-group">
                         <label for="price">Harga</label>
                         <input type="price" name="price" class="form-control" id="price" value="{{ $arena->price }}"

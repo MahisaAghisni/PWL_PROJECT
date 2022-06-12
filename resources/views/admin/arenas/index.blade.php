@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('admin.layouts.main')
 
 @section('content')
     <div class="container-fluid">
@@ -23,6 +23,7 @@
                         <thead>
                             <tr>
                                 <th>No</th>
+                                <th>Jenis Lapangan</th>
                                 <th>Gambar</th>
                                 <th>Harga</th>
                                 <th>Action</th>
@@ -32,6 +33,7 @@
                             @foreach ($posts as $arena)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $arena->jenisArena->nama }}</td>
                                     <td><img width="100px" height="100px" src="{{ asset('storage/' . $arena->image) }}">
                                     </td>
                                     <td>Rp{{ number_format($arena->price, 2, ',', '.') }}</td>

@@ -16,7 +16,12 @@ class arena extends Model
 
     protected $fillable = [
         'id',
+        'jenis_id',
         'price',
         'image',
     ];
+    public function jenisArena()
+    {
+        return $this->belongsTo(Jenis::class, 'jenis_id', 'id');
+    }
 }
