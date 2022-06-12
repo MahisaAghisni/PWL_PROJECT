@@ -30,9 +30,8 @@
                     <label for="exampleFormControlSelect1">Jenis Arena</label>
                     <select class="form-control" id="jenis_id" name="jenis_id">
                         <?php $__currentLoopData = $jenisLap; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $jenis): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <option value="<?php echo e($jenis->id); ?>"><?php echo e($arena->jenis_id ? 'selected' : ''); ?></option>
-                            <?php echo e($jenis->nama); ?>
-
+                            <option value="<?php echo e($jenis->id); ?>">
+                                <?php echo e($arena->jenis_id ? '' : ''); ?><?php echo e($jenis->nama); ?></option>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </select>
                     <div class="form-group">

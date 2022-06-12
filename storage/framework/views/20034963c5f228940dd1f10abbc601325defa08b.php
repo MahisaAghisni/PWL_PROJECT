@@ -32,7 +32,7 @@
                         <textarea name="deskripsi" class="form-control" id="deskripsi" deskripsi cols="30" rows="10"></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="images">gambar</label>
+                        <label for="images">Gambar</label>
                         <input type="file" class="form-control" required="required" name="images">
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">Submit</button>

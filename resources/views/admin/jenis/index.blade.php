@@ -32,7 +32,7 @@
                         <tbody>
                             @foreach ($jenisLap as $jenis)
                                 <tr>
-                                    <td>{{ $jenis->id }}</td>
+                                    <td>{{ $loop->iteration }}</td>
                                     <td>{{ $jenis->nama }}</td>
                                     <td>{{ $jenis->deskripsi }}</td>
                                     <td><img src="{{ asset('storage/' . $jenis->images) }}" alt=""></td>

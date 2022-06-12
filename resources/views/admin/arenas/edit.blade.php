@@ -35,8 +35,8 @@
                     <label for="exampleFormControlSelect1">Jenis Arena</label>
                     <select class="form-control" id="jenis_id" name="jenis_id">
                         @foreach ($jenisLap as $jenis)
-                            <option value="{{ $jenis->id }}">{{ $arena->jenis_id ? 'selected' : '' }}</option>
-                            {{ $jenis->nama }}
+                            <option value="{{ $jenis->id }}">
+                                {{ $arena->jenis_id ? '' : '' }}{{ $jenis->nama }}</option>
                         @endforeach
                     </select>
                     <div class="form-group">

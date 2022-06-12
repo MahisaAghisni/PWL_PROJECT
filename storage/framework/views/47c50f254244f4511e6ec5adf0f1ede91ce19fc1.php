@@ -63,10 +63,12 @@
                 <div class="collapse" id="auth">
                     <ul class="nav flex-column sub-menu">
                         <li class="nav-item"> <a class="nav-link" href="<?php echo e(route('login')); ?>"> Status
-                                Transaksi
+                                Pending
                             </a></li>
                         <li class="nav-item"> <a class="nav-link" href="<?php echo e(route('register')); ?>">
-                                Transaksi </a></li>
+                                Status Booking </a></li>
+                        <li class="nav-item"> <a class="nav-link" href="<?php echo e(route('register')); ?>">
+                                Status Selesai </a></li>
                     </ul>
                 </div>
             </li>

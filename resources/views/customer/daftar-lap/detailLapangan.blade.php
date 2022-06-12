@@ -27,7 +27,8 @@
                             </a>
                             <div class="block-4-text p-4">
                                 <h3>{{ $arena->name }}</h3>
-                                <p class="mb-0">{{ $arena->price }}</p>
+                                <p class="mb-0">Lapangan Nomor : {{ $arena->id }}</p>
+                                <p class="mb-0">Harga : {{ $arena->price }} Per Jam</p>
                                 <a href="{{ route('booking', $arena->id) }}" class="btn btn-primary mt-2">booking</a>
                             </div>
                         </div>
