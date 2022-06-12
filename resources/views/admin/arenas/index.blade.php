@@ -6,7 +6,7 @@
         <div class="card">
             <div class="card-header py-3 d-flex">
                 <h6 class="m-0 font-weight-bold text-primary">
-                    {{ __('arena') }}
+                    {{ __('Arena') }}
                 </h6>
                 <div class="ml-auto">
                     <a href="/admin/arena/create" class="btn btn-primary">

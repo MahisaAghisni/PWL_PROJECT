@@ -4,7 +4,7 @@
         <div class="card">
             <div class="card-header py-3 d-flex">
                 <h6 class="m-0 font-weight-bold text-primary">
-                    <?php echo e(__('jenis')); ?>
+                    <?php echo e(__('Jenis')); ?>
 
                 </h6>
                 <div class="ml-auto">
