@@ -17,7 +17,5 @@ class status_transactions extends Model
     protected $fillable = [
         'id',
         'nama',
-        'image',
-        'deskripsi',
     ];
 }

@@ -23,7 +23,7 @@ class DaftarLapController extends Controller
     {
         $jenisLap = Jenis::findOrFail($id);
 
-        $arenas = Arena::with('jenis')->where('jenis_id', $id)->get();
+        $arenas = Arena::with('jenisArena')->where('jenis_id', $id)->get();
 
 
         // dd($arenas, $jenisLap);

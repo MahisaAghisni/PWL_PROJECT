@@ -63,7 +63,7 @@
                 <span class="nav-link">Navigation</span>
             </li>
             <li class="nav-item menu-items">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{ route('dashboard.index') }}">
                     <span class="menu-icon">
                         <i class="mdi mdi-speedometer"></i>
                     </span>
@@ -86,56 +86,27 @@
                     </ul>
                 </div>
             </li>
-            {{-- <li class="nav-item menu-items">
-                <a class="nav-link" href="pages/forms/basic_elements.html">
-                    <span class="menu-icon">
-                        <i class="mdi mdi-playlist-play"></i>
-                    </span>
-                    <span class="menu-title">Form Elements</span>
-                </a>
-            </li>
             <li class="nav-item menu-items">
-                <a class="nav-link" href="pages/tables/basic-table.html">
-                    <span class="menu-icon">
-                        <i class="mdi mdi-table-large"></i>
-                    </span>
-                    <span class="menu-title">Tables</span>
-                </a>
-            </li>
-            <li class="nav-item menu-items">
-                <a class="nav-link" href="pages/charts/chartjs.html">
-                    <span class="menu-icon">
-                        <i class="mdi mdi-chart-bar"></i>
-                    </span>
-                    <span class="menu-title">Charts</span>
-                </a>
-            </li>
-            <li class="nav-item menu-items">
-                <a class="nav-link" href="pages/icons/mdi.html">
-                    <span class="menu-icon">
-                        <i class="mdi mdi-contacts"></i>
-                    </span>
-                    <span class="menu-title">Icons</span>
-                </a>
-            </li> --}}
-            {{-- <li class="nav-item menu-items">
                 <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false"
                     aria-controls="auth">
                     <span class="menu-icon">
                         <i class="mdi mdi-security"></i>
                     </span>
-                    <span class="menu-title">User Pages</span>
+                    <span class="menu-title">Kelola Transaksi</span>
                     <i class="menu-arrow"></i>
                 </a>
                 <div class="collapse" id="auth">
                     <ul class="nav flex-column sub-menu">
-                        <li class="nav-item"> <a class="nav-link" href="{{ route('login') }}"> Login
+                        <li class="nav-item"> <a class="nav-link" href="{{ route('login') }}"> Status
+                                Pending
                             </a></li>
                         <li class="nav-item"> <a class="nav-link" href="{{ route('register') }}">
-                                Register </a></li>
+                                Status Booking </a></li>
+                        <li class="nav-item"> <a class="nav-link" href="{{ route('register') }}">
+                                Status Selesai </a></li>
                     </ul>
                 </div>
-            </li> --}}
+            </li>
             {{-- <li class="nav-item menu-items">
                 <a class="nav-link"
                     href="http://www.bootstrapdash.com/demo/corona-free/jquery/documentation/documentation.html">

@@ -20,7 +20,7 @@ class StatusTransactionsSeeder extends Seeder
                 'name' => 'Pending',
             ],
             [
-                'name' => 'diBooking'
+                'name' => 'Booking'
             ],
             [
                 'name' => 'selesai'

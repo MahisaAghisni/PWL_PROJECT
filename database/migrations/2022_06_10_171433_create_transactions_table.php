@@ -19,6 +19,7 @@ class CreateTransactionsTable extends Migration
             $table->unsignedBigInteger('arenas_id');
             $table->dateTime('start_time');
             $table->dateTime('end_time');
+            $table->integer('sub_total');
             $table->unsignedBigInteger('status_id');
             $table->timestamps();
         });

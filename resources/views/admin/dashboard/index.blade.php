@@ -45,7 +45,8 @@
                     <div class="card-body">
                         <img src="{{ asset('adminassets') }}/assets/images/dashboard/circle.svg" class="card-img-absolute"
                             alt="circle-image" />
-                        <h4 class="font-weight-normal mb-3">Pelanggan <i class="mdi mdi-diamond mdi-24px float-right"></i>
+                        <h4 class="font-weight-normal mb-3">Jumlah Lapangan<i
+                                class="mdi mdi-diamond mdi-24px float-right"></i>
                         </h4>
                         {{-- <h2 class="mb-5">{{ $pelanggan->total_users }}</h2> --}}
                     </div>
@@ -69,15 +70,6 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {{-- @foreach ($order_baru as $order)
-                            <tr>
-                              <td>{{ $order->invoice }}</td>
-                              <td>{{ $order->nama_pemesan }}</td>
-                              <td>{{ $order->sub_total + $order->biaya_cod }}</td>
-                              <td>{{ $order->name }}</td>
-                              <td> <a href="{{ route('admin.transaksi.detail',$order->id) }}" class="btn btn-warning btn-sm">Detail</a></td>
-                            </tr>
-                          @endforeach --}}
                                 </tbody>
                             </table>
                         </div>
