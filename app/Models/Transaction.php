@@ -15,10 +15,26 @@ class Transaction extends Model
 
     protected $fillable = [
         'users_id',
-        'arenas_id',
-        'start_time',
-        'end_time',
         'status_id',
-        'sub_total'
+        'bookings_id',
+        'sub_total',
+        'metode_pembayaran',
+        'no_hp',
+        'bukti_pembayaran'
     ];
+
+    public function users()
+    {
+        return $this->belongsTo(User::class, 'users_id', 'id');
+    }
+
+    public function bookings()
+    {
+        return $this->belongsTo(Booking::class, 'bookings_id', 'id');
+    }
+
+    public function status()
+    {
+        return $this->belongsTo(Status::class, 'status_id', 'id');
+    }
 }
