@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Customer;
 
-use App\Http\Controllers\ArenaController;
-use App\Models\Jadwal;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Jenis;
+use App\Models\Booking;
 use App\Models\Arena;
 
 class DaftarLapController extends Controller
@@ -23,7 +22,7 @@ class DaftarLapController extends Controller
     {
         $jenisLap = Jenis::findOrFail($id);
 
-        $arenas = Arena::with('jenisArena')->where('jenis_id', $id)->get();
+        $arenas = Arena::with('jenis')->where('jenis_id', $id)->get();
 
 
         // dd($arenas, $jenisLap);
@@ -31,25 +30,16 @@ class DaftarLapController extends Controller
         return view('customer.daftar-lap.detailLapangan', compact('arenas', 'jenisLap'));
     }
 
-    public function cekJadwal($id)
+    public function cekLapangan(Request $request, $id)
     {
-        $arenas = Arena::findOrFail($id);
+        $arenas = Arena::with('jenis')->findOrFail($id);
 
-        return view('customer.daftar-lap.lapangan', compact('arenas'));
-    }
+        $jadwals = $request->jadwals;
+        $bookings = Booking::whereDate('date', 'like', "%" . $jadwals . "%")->get();
 
-    public function booking($id)
-    {
-        $arenas = Arena::findOrFail($id);
 
-        // dd($arenas,$jadwals);
+        // dd($lapangans,$jadwals);
 
-        return view('customer.daftar-lap.booking', compact('arenas'));
-    }
-
-    public function bookingStore($id)
-    {
-        //
-        $arenas = Arena::findOrFail($id);
+        return view('customer.lapangan.index', compact('arenas', 'jadwals', 'bookings'));
     }
 }
