@@ -2,10 +2,13 @@
 
 use App\Http\Controllers\Admin\ArenaController;
 use App\Http\Controllers\Admin\JenisController;
-use App\Http\Controllers\Admin\JadwalController;
 use App\Http\Controllers\Customer\HomeController;
 use App\Http\Controllers\Customer\DaftarLapController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Customer\BookingController;
+use App\Http\Controllers\Customer\TransactionController;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -33,18 +36,32 @@ Route::controller(HomeController::class)->group(function () {
 
 Route::controller(DaftarLapController::class)->group(function () {
     Route::get('/daftar-lapangan', 'index')->name('daftar-lap');
-    Route::get('/daftar-lapangan/detail-lapangan/{id}', 'detail')->name('detail-lapangan');
-    Route::get('/daftar-lapangan/detail-lapangan/cek-jadwal/{id}', 'cekJadwal')->name('cek-jadwal');
-    Route::group(['middleware' => ['auth', 'CheckRole::customer']], function () {
-        Route::get('/daftar-lapangan/detail-lapangan/booking/{id}', 'booking')->name('booking');
+    Route::get('/detail-lapangan/{id}', 'detail')->name('detail-lapangan');
+    Route::get('/cek-lapangan/{id}', 'cekLapangan')->name('cek-lapangan');
+});
+
+Route::middleware(['CheckRole:customer', 'auth'])->group(function () {
+
+    Route::controller(BookingController::class)->group(function () {
+        Route::get('/daftar-lapangan/detail-lapangan/booking/{id}', 'booking')->name('booking.lapangan');
+        Route::post('/booking/store', 'bookingStore')->name('booking.store');
+        Route::get('/booking/success', 'success')->name('booking.success');
+    });
+
+    Route::controller(TransactionController::class)->group(function () {
+        Route::get('/order', 'order')->name('order.index');
+        Route::get('/order/checkout/{id}', 'checkout')->name('order.checkout');
+        Route::post('/order/store/{id}', 'store')->name('order.store');
     });
 });
 
 Route::group(['middleware' => ['auth', 'CheckRole:admin']], function () {
     Route::resource('/admin/jenis', JenisController::class);
-    Route::resource('/admin/arena', ArenaController::class);
-    Route::resource('/admin/jadwal', JadwalController::class);
+    Route::resource('admin/arena', ArenaController::class);
     Route::resource('/admin/dashboard', DashboardController::class);
+    Route::controller(OrderController::class)->group(function () {
+        Route::get('/admin/transaksi/pending', 'pending')->name('transaksi.pending');
+    });
 
     // Route::controller(DashboardController::class)->group(function () {
     //     Route::get('/admin/dashboard', 'index')->name('admin.dashboard');

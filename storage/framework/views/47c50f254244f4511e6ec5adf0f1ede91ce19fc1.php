@@ -52,8 +52,7 @@
                 </div>
             </li>
             <li class="nav-item menu-items">
-                <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false"
-                    aria-controls="auth">
+                <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
                     <span class="menu-icon">
                         <i class="mdi mdi-security"></i>
                     </span>
@@ -62,7 +61,7 @@
                 </a>
                 <div class="collapse" id="auth">
                     <ul class="nav flex-column sub-menu">
-                        <li class="nav-item"> <a class="nav-link" href="<?php echo e(route('login')); ?>"> Status
+                        <li class="nav-item"> <a class="nav-link" href="<?php echo e(route('transaksi.pending')); ?>"> Status
                                 Pending
                             </a></li>
                         <li class="nav-item"> <a class="nav-link" href="<?php echo e(route('register')); ?>">

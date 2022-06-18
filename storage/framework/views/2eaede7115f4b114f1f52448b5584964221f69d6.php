@@ -28,13 +28,12 @@
                                 <h3><?php echo e($arena->name); ?></h3>
                                 <p class="mb-0">Lapangan Nomor : <?php echo e($arena->id); ?></p>
                                 <p class="mb-0">Harga : <?php echo e($arena->price); ?> Per Jam</p>
-                                <a href="<?php echo e(route('booking', $arena->id)); ?>" class="btn btn-primary mt-2">booking</a>
+                                <a href="<?php echo e(route('cek-lapangan', $arena->id)); ?>" class="btn btn-primary mt-2">booking</a>
                             </div>
                         </div>
                     </div>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
-            
         </div>
     </div>
 <?php $__env->stopSection(); ?>

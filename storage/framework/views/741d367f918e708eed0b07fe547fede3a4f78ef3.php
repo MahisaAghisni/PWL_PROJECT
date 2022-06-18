@@ -23,7 +23,6 @@
             <div class="card-body">
                 <form action="<?php echo e(route('arena.store')); ?>" method="POST" enctype="multipart/form-data">
                     <?php echo csrf_field(); ?>
-                    
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Jenis Arena</label>
                         <select class="form-control" id="jenis_id" name="jenis_id">
@@ -37,7 +36,7 @@
                         <input type="text" name="price" class="form-control" id="price" aria-describedby="price">
                     </div>
                     <div class="form-group">
-                        <label for="image">gambar</label>
+                        <label for="image">Gambar</label>
                         <input type="file" class="form-control" required="required" name="image">
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">Submit</button>

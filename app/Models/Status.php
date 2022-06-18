@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class status_transactions extends Model
+class Status extends Model
 {
     use HasFactory;
 
@@ -16,6 +16,16 @@ class status_transactions extends Model
 
     protected $fillable = [
         'id',
-        'nama',
+        'nama'
     ];
+
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class, 'id');
+    }
+
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class, 'id');
+    }
 }
