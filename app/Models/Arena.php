@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class arena extends Model
+class Arena extends Model
 {
     use HasFactory;
 
@@ -18,10 +18,16 @@ class arena extends Model
         'id',
         'jenis_id',
         'price',
-        'image',
+        'image'
     ];
-    public function jenisArena()
+
+    public function jenis()
     {
         return $this->belongsTo(Jenis::class, 'jenis_id', 'id');
+    }
+
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class, 'id');
     }
 }

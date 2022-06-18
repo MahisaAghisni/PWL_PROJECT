@@ -25,10 +25,6 @@
             <div class="card-body">
                 <form action="{{ route('arena.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    {{-- <div class="form-group">
-                        <label for="id">Id</label>
-                        <input type="text" name="id" class="form-control" id="id" aria-describedby="id">
-                    </div> --}}
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Jenis Arena</label>
                         <select class="form-control" id="jenis_id" name="jenis_id">
@@ -42,7 +38,7 @@
                         <input type="text" name="price" class="form-control" id="price" aria-describedby="price">
                     </div>
                     <div class="form-group">
-                        <label for="image">gambar</label>
+                        <label for="image">Gambar</label>
                         <input type="file" class="form-control" required="required" name="image">
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">Submit</button>

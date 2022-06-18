@@ -18,7 +18,7 @@ class ArenaController extends Controller
     public function index()
     {
         //
-        $posts = Arena::with('jenisArena')->paginate(3);
+        $posts = Arena::with('jenis')->paginate(3);
 
         // dd($posts);
         return view('admin.arenas.index', ['posts' => $posts]);
