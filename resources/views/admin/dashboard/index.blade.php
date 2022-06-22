@@ -21,10 +21,10 @@
                     <div class="card-body">
                         {{-- <img src="{{ asset('adminassets') }}/assets/images/dashboard/circle.svg" class="card-img-absolute"
                             alt="circle-image" /> --}}
-                        <h4 class="font-weight-normal mb-3">Pendapatan <i
+                        <h4 class="font-weight-normal mb-3">Total Pendapatan <i
                                 class="mdi mdi-chart-line mdi-24px float-right"></i>
                         </h4>
-                        {{-- <h2 class="mb-5">Rp. {{ number_format($pendapatan->penghasilan,2,',','.') }}</h2> --}}
+                        <h2 class="mb-5">Rp. {{ number_format($pendapatan->penghasilan, 2, ',', '.') }}</h2>
                     </div>
                 </div>
             </div>
@@ -33,10 +33,10 @@
                     <div class="card-body">
                         {{-- <img src="{{ asset('adminassets') }}/assets/images/dashboard/circle.svg" class="card-img-absolute"
                             alt="circle-image" /> --}}
-                        <h4 class="font-weight-normal mb-3">Transaksi <i
+                        <h4 class="font-weight-normal mb-3">Jumlah Transaksi <i
                                 class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
                         </h4>
-                        {{-- <h2 class="mb-5">{{ $transaksi->total_order }}</h2> --}}
+                        <h2 class="mb-5">{{ $transaksi->total_order }}</h2>
                     </div>
                 </div>
             </div>
@@ -48,7 +48,7 @@
                         <h4 class="font-weight-normal mb-3">Jumlah Lapangan<i
                                 class="mdi mdi-diamond mdi-24px float-right"></i>
                         </h4>
-                        {{-- <h2 class="mb-5">{{ $pelanggan->total_users }}</h2> --}}
+                        <h2 class="mb-5">{{ $lapangan->lapangan }}</h2>
                     </div>
                 </div>
             </div>
@@ -59,17 +59,52 @@
                     <div class="card-body">
                         <h4 class="card-title">10 Transaksi Terbaru</h4>
                         <div class="table-responsive">
-                            <table class="table">
+                            <table class="table table-bordered table-hovered" id="table">
                                 <thead>
                                     <tr>
-                                        <th> Invoice </th>
-                                        <th> Pemesan </th>
-                                        <th> Subtotal </th>
-                                        <th> Status Pesanan </th>
-                                        <th> Aksi </th>
+                                        <th class="product-thumbnail">Nama</th>
+                                        <th class="product-thumbnail">tanggal</th>
+                                        <th class="product-name">jam mulai</th>
+                                        <th class="product-price">jam selesai</th>
+                                        <th class="product-price">status</th>
+                                        <th class="product-quantity" width="20%">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @if (count($transaksi_terbaru))
+                                        @foreach ($transaksi_terbaru as $transaction)
+                                            <tr>
+                                                <td>{{ $transaction->nama }}</td>
+                                                <td>{{ $transaction->date }}</td>
+                                                <td>{{ $transaction->start_time }}</td>
+                                                <td>{{ $transaction->end_time }}</td>
+                                                @if ($transaction->bukti_pembayaran != null)
+                                                    <td>
+                                                        <a href="" class="btn btn-outline-warning disabled">
+                                                            menunggu konfirmasi
+                                                        </a>
+                                                    </td>
+                                                @else
+                                                    <td>
+                                                        <a href="" class="btn btn-outline-warning disabled">
+                                                            {{ $transaction->status->nama }}
+                                                        </a>
+                                                    </td>
+                                                @endif
+                                                <td>
+                                                    <a href="{{ route('transaksi.detail', $transaction->id) }}"
+                                                        class="btn btn-outline-success">
+                                                        detail
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    @else
+                                        <tr>
+                                            <td colspan="5" align="center">Tidak ada data</td>
+                                        </tr>
+                                    @endif
+
                                 </tbody>
                             </table>
                         </div>
