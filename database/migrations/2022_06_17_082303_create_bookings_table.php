@@ -15,13 +15,11 @@ class CreateBookingsTable extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
             $table->unsignedBigInteger('users_id');
             $table->unsignedBigInteger('arenas_id');
             $table->date('date');
             $table->time('start_time');
             $table->time('end_time');
-            $table->unsignedBigInteger('status_id');
             $table->timestamps();
         });
     }

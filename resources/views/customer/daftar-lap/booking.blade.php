@@ -1,4 +1,4 @@
-@extends('customer.layouts.app')
+{{-- @extends('customer.layouts.app')
 @section('content')
 
     <body class="antialiased">
@@ -71,4 +71,4 @@
             });
         </script>
     </body>
-@endsection
+@endsection --}}

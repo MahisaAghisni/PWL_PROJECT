@@ -9,47 +9,56 @@
             </div>
             <div class="lapangan">
                 <div class="title">
-                    <h2>Lapangan {{ $arenas->id }}</h2>
+                    <h2 style="color:black">{{ $arenas->nama }}</h2>
                     <h4><a href="{{ route('detail-lapangan', $arenas->jenis->id) }}">{{ $arenas->jenis->name }}</a>
                     </h4>
                 </div>
 
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">{{ $arenas->jenis->name }}</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Lapangan {{ $arenas->id }}</li>
+                        <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('detail-lapangan',$arenas->jenis_id) }}">{{ $arenas->jenis->nama }}</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ $arenas->nama }}</li>
                     </ol>
                 </nav>
 
                 <div class="cek-jadwal">
-                    <h4>Pilih Tanggal Booking : </h4>
+                    <h4 style="color:black">Pilih Tanggal Booking : </h4>
                     <form action="{{ url()->current() }}" method="get">
                         <div class="form-group mb-2">
-                            <label for="jadwals">pilih tanggal booking</label>
+                            <label for="jadwals" style="color:black">pilih tanggal booking</label>
                             <input type="date" class="form-control " id="jadwals" name="jadwals"
                                 value="{{ request('jadwals') }}" />
                         </div>
                         <button type="submit" class="btn btn-primary" value="jadwals">Cek Jadwal</button>
                     </form>
                     @if (isset($jadwals))
-                        @if (count($bookings) > 0)
-                            <div class="table-responsive">
+                        @if (count($transactions) > 0)
+                            <div class="table-responsive" style="margin-top: 20px">
                                 <table class="table table-bordered table-hovered" id="table">
                                     <thead>
                                         <tr>
+                                            <th>Nama</th>
                                             <th>date</th>
                                             <th>start time</th>
                                             <th>end time</th>
+                                            <th>Status</th>
 
                                         </tr>
                                     </thead>
                                     <tbody>
 
-                                        @foreach ($bookings as $booking)
+                                        @foreach ($transactions as $transaction)
                                             <tr>
-                                                <td>{{ $booking->date }}</td>
-                                                <td>{{ $booking->start_time }}</td>
-                                                <td>{{ $booking->end_time }}</td>
+                                                <td>{{ $transaction->nama }}</td>
+                                                <td>{{ $transaction->date }}</td>
+                                                <td>{{ $transaction->start_time }}</td>
+                                                <td>{{ $transaction->end_time }}</td>
+                                                <td>
+                                                    <a href="" class="btn btn-outline-warning disabled">
+                                                        {{ $transaction->status->nama }}
+                                                    </a>
+                                                </td>
                                             </tr>
                                         @endforeach
 
@@ -62,8 +71,9 @@
                                 <strong>Belum ada jadwal </strong>
                             </div>
                         @endif
-                        <a href="{{ route('booking.lapangan', $arenas->id) }}" class="btn btn-primary">Booking
-                            Sekarang</a>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">
+                            Booking Sekarang
+                        </button>
                     @endif
 
                 </div>
@@ -73,4 +83,6 @@
 
         </div>
     </div>
+
+    @include('customer.lapangan.modal.addModal')
 @endsection

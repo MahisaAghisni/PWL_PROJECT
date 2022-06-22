@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Jenis;
 use App\Models\Booking;
 use App\Models\Arena;
+use App\Models\Transaction;
 
 class DaftarLapController extends Controller
 {
@@ -35,11 +36,11 @@ class DaftarLapController extends Controller
         $arenas = Arena::with('jenis')->findOrFail($id);
 
         $jadwals = $request->jadwals;
-        $bookings = Booking::whereDate('date', 'like', "%" . $jadwals . "%")->get();
+        $transactions = Transaction::whereDate('date', 'like', "%" . $jadwals . "%")->where('arenas_id', $arenas->id)->where('status_id', 3)->get();
 
 
         // dd($lapangans,$jadwals);
 
-        return view('customer.lapangan.index', compact('arenas', 'jadwals', 'bookings'));
+        return view('customer.lapangan.index', compact('arenas', 'jadwals', 'transactions'));
     }
 }
