@@ -14,9 +14,9 @@ class TransactionController extends Controller
     public function order()
     {
         //
-        $bookings = Booking::with('status', 'arenas')->where('users_id', Auth::user()->id)->get();
+        $bookings = Booking::with('arenas')->where('users_id', Auth::user()->id)->get();
 
-        $transactions = Transaction::with('status', 'bookings')->where('users_id', Auth::user()->id)->get();
+        $transactions = Transaction::where('users_id', Auth::user()->id)->get();
 
         // dd($bookings);
 
@@ -34,33 +34,69 @@ class TransactionController extends Controller
     {
         $bookings = Booking::findOrFail($id);
 
-        if ($request->metode_pembayaran = 'bayar di tempat') {
+        if ($request->metode_pembayaran == 'transfer') {
 
             Transaction::create([
                 'users_id' => Auth::user()->id,
-                'bookings_id' => $bookings->id,
-                'status_id' => 2,
-                'sub_total' => $request->sub_total,
-                'metode_pembayaran' => $request->metode_pembayaran,
-                'no_hp' => $request->no_hp,
-            ]);
-        } elseif ($request->metode_pembayaran = 'transfer') {
-
-            Transaction::create([
-                'users_id' => Auth::user()->id,
-                'bookings_id' => $bookings->id,
+                'invoice' => 'ALV' . date('Ymdhi'),
+                'nama' => $request->nama,
+                'date' => $request->date,
+                'start_time' => $request->start_time,
+                'end_time' => $request->end_time,
                 'status_id' => 1,
                 'sub_total' => $request->sub_total,
-                'metode_pembayaran' => $request->metode_pembayaran,
+                'no_hp' => $request->no_hp,
+                'arenas_id' => $request->arenas_id,
+                'metode_pembayaran' => $request->metode_pembayaran
+            ]);
+        } else {
+
+            Transaction::create([
+                'users_id' => Auth::user()->id,
+                'invoice' => 'ALV' . date('Ymdhi'),
+                'nama' => $request->nama,
+                'date' => $request->date,
+                'start_time' => $request->start_time,
+                'end_time' => $request->end_time,
+                'status_id' => 2,
+                'sub_total' => $request->sub_total,
                 'no_hp' => $request->no_hp,
                 'bukti_pembayaran' => $request->bukti_pembayaran,
+                'arenas_id' => $request->arenas_id,
+                'metode_pembayaran' => $request->metode_pembayaran
             ]);
         }
 
-        Booking::where('users_id', Auth::user()->id)->where('id', $id)->update([
-            'status_id' => 2,
-        ]);
+        Booking::where('users_id', Auth::user()->id)->delete();
 
         return redirect()->route('order.index');
+    }
+
+    public function bayar($id)
+    {
+        $transactions = Transaction::findOrFail($id);
+        // $rekenings = Rekening::all();
+
+        return view('customer.order.bayar', compact('rekenings', 'transactions'));
+    }
+
+    public function kirimBuktiPembayaran(Request $request, $id)
+    {
+        $transactions = Transaction::findOrFail($id);
+
+        $image = $request->file('bukti_pembayaran')->store('bukti_pembayaran', 'public');
+        $transactions->update([
+            'bukti_pembayaran' => $image,
+        ]);
+
+        return redirect()->route('order.index')->with('success', 'Bukti Pembayaran Berhasil Dikirim');
+    }
+
+    public function details($id)
+    {
+        //
+        $transactions = Transaction::findOrFail($id);
+
+        return view('customer.order.details', compact('transactions'));
     }
 }

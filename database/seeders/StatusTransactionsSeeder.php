@@ -17,13 +17,16 @@ class StatusTransactionsSeeder extends Seeder
         //
         DB::table('status_transactions')->insert([
             [
-                'nama' => 'Pending',
+                'nama' => 'belum dibayar'
             ],
             [
                 'nama' => 'Booking'
             ],
             [
                 'nama' => 'selesai'
+            ],
+            [
+                'nama' => 'batal'
             ]
         ]);
     }
