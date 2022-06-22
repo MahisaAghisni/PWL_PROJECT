@@ -103,7 +103,8 @@ Route::group(['middleware' => ['auth', 'CheckRole:admin']], function () {
     //     Route::get('/admin/jenis/create', 'create')->name('admin.jenis.create');
     //     Route::post('/admin/jenis/store', 'store')->name('admin.jenis.store');
     //     Route::post('/admin/jenis/update/{id}', 'update')->name('admin.jenis.update');
-    // });
+    // 
+    //});
 });
 
 Auth::routes();
