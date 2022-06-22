@@ -18,7 +18,8 @@ class Arena extends Model
         'id',
         'jenis_id',
         'price',
-        'image'
+        'image',
+        'nama'
     ];
 
     public function jenis()
@@ -29,5 +30,10 @@ class Arena extends Model
     public function bookings()
     {
         return $this->hasMany(Booking::class, 'id');
+    }
+
+    public function transactions()
+    {
+        return $this->hasMany(DetailTransaction::class, 'id');
     }
 }
