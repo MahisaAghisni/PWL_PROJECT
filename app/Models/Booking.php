@@ -9,6 +9,10 @@ class Booking extends Model
 {
     use HasFactory;
 
+    protected $table = 'bookings'; // Eloquent akan membuat model mahasiswa menyimpan record di tabel jenis
+    public $timestamps = false;
+    protected $primaryKey = 'id'; // Memanggil isi DB Dengan primarykey
+
     protected $fillable = [
         'id',
         'users_id',
@@ -16,8 +20,6 @@ class Booking extends Model
         'end_time',
         'arenas_id',
         'date',
-        'status_id',
-        'nama'
     ];
 
     public function arenas()

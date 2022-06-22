@@ -28,11 +28,6 @@
                         <div class="card-body">
                             <form action="{{ route('booking.store') }}" method="POST">
                                 @csrf
-                                <div class="form-group">
-                                    <label for="nama">{{ __('nama') }}</label>
-                                    <input type="text" class="form-control @error('nama') is-invalid @enderror"
-                                        name="nama" id="nama" value="{{ old('nama') }}">
-                                </div>
                                 <div class="form-group mb-2">
                                     <label for="date">pilih tanggal booking</label>
                                     <input type="date" class="form-control @error('date') is-invalid @enderror"
