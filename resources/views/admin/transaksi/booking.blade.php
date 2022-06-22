@@ -37,7 +37,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @if(count($transactions))               
+                                    @if(count($transactions))
                                         @foreach ($transactions as $transaction)
                                                 <tr>
                                                     <td>{{ $transaction->nama }}</td>
@@ -60,7 +60,7 @@
                                                             Batal
                                                         </a>
                                                     </td>
-                                                </tr>                                      
+                                                </tr>
                                         @endforeach
                                     @else
                                         <tr>
@@ -74,6 +74,5 @@
                     </div>
                 </div>
             </div>
-
 
         @endsection

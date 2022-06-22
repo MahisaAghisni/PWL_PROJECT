@@ -37,7 +37,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @if(count($transactions))               
+                                    @if(count($transactions))
                                         @foreach ($transactions as $transaction)
                                                 <tr>
                                                     <td>{{ $transaction->nama }}</td>
@@ -55,14 +55,14 @@
                                                             <a href="" class="btn btn-outline-warning disabled">
                                                                 {{ $transaction->status->nama }}
                                                             </a>
-                                                        </td>      
+                                                        </td>
                                                     @endif
                                                     <td>
                                                         <a href="{{ route('transaksi.detail',$transaction->id) }}" class="btn btn-outline-success">
                                                             detail
                                                         </a>
                                                     </td>
-                                                </tr>                                      
+                                                </tr>
                                         @endforeach
                                     @else
                                         <tr>
@@ -76,6 +76,5 @@
                     </div>
                 </div>
             </div>
-
 
         @endsection

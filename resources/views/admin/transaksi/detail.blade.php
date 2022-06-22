@@ -79,7 +79,7 @@
                                     <small>Klik tombol ini jika pembeli sudah terbukti melakukan pembayaran</small>
                                     </td>
                                 </tr>
-                                
+
                             @endif
                         @elseif($transactions->status_id == 2)
                             <tr>
@@ -88,7 +88,7 @@
                               <td  class="p-2"><a href="" onclick="return confirm('Yakin ingin mengonfirmasi pesanan ini?')" class="btn btn-primary mt-1 disabled">Konfirmasi Telah Bayar</a><br>
                               <small>Klik tombol ini jika pembeli sudah terbukti melakukan pembayaran</small>
                               </td>
-                            </tr>                           
+                            </tr>
                         @endif
                     </table>
                     </div>

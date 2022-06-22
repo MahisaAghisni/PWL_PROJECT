@@ -37,7 +37,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @if(count($transactions))               
+                                    @if(count($transactions))
                                         @foreach ($transactions as $transaction)
                                                 <tr>
                                                     <td>{{ $transaction->nama }}</td>
@@ -54,7 +54,7 @@
                                                             detail
                                                         </a>
                                                     </td>
-                                                </tr>                                      
+                                                </tr>
                                         @endforeach
                                     @else
                                         <tr>
