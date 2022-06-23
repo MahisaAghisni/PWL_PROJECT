@@ -42,7 +42,7 @@
 
                         <div class="col-6 col-md-4 order-3 order-md-3 text-right">
                             <div class="top-right links">
-                                <div class="site-top-icons" width="300px">
+                                <div class="site-top-icons">
                                     <ul>
                                         <?php if(Route::has('login')): ?>
                                             <?php if(auth()->guard()->check()): ?>
