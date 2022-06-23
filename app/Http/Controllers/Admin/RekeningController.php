@@ -61,4 +61,5 @@ class RekeningController extends Controller
 
         return redirect()->route('admin.rekening')->with('success', 'Data berhasil diubah');
     }
+
 }
