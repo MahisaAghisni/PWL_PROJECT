@@ -33,11 +33,11 @@
                         <input type="text" class="form-control" id="id" value="{{ $arena->id }}" aria- describedby="id">
                     </div> --}}
                     <div class="form-group">
-                        <label for="nama">Nama</label>
+                        <label for="nama"> Nama </label>
                         <input type="text" name="nama" class="form-control" id="nama"
                             value="{{ $arena->nama }}" aria- describedby="nama">
                     </div>
-                    <label for="exampleFormControlSelect1">Jenis Arena</label>
+                    <label for="exampleFormControlSelect1"> Jenis Arena </label>
                     <select class="form-control" id="jenis_id" name="jenis_id">
                         @foreach ($jenisLap as $jenis)
                             <option value="{{ $jenis->id }}">
@@ -45,17 +45,17 @@
                         @endforeach
                     </select>
                     <div class="form-group">
-                        <label for="price">Harga</label>
+                        <label for="price"> Harga </label>
                         <input type="price" name="price" class="form-control" id="price"
                             value="{{ $arena->price }}" aria- describedby="price">
                     </div>
                     <div class="form-group">
-                        <label for="image">Gambar</label>
+                        <label for="image"> Gambar </label>
                         <input type="file" class="form-control" required="required" name="image"
                             value="{{ $arena->image }}">
                         <img width="150px" src="{{ asset('storage/' . $arena->image) }}">
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">Save</button>
+                    <button type="submit" class="btn btn-primary btn-block"> Save </button>
                 </form>
             </div>
         </div>
