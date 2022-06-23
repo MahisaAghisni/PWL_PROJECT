@@ -32,6 +32,11 @@
                         <label for="id">id</label>
                         <input type="text" class="form-control" id="id" value="{{ $arena->id }}" aria- describedby="id">
                     </div> --}}
+                    <div class="form-group">
+                        <label for="nama">Nama</label>
+                        <input type="text" name="nama" class="form-control" id="nama"
+                            value="{{ $arena->nama }}" aria- describedby="nama">
+                    </div>
                     <label for="exampleFormControlSelect1">Jenis Arena</label>
                     <select class="form-control" id="jenis_id" name="jenis_id">
                         @foreach ($jenisLap as $jenis)
@@ -41,8 +46,8 @@
                     </select>
                     <div class="form-group">
                         <label for="price">Harga</label>
-                        <input type="price" name="price" class="form-control" id="price" value="{{ $arena->price }}"
-                            aria- describedby="price">
+                        <input type="price" name="price" class="form-control" id="price"
+                            value="{{ $arena->price }}" aria- describedby="price">
                     </div>
                     <div class="form-group">
                         <label for="image">Gambar</label>

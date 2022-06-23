@@ -42,8 +42,7 @@
                                             <a href="{{ route('arena.edit', $arena->id) }}" class="btn btn-info">
                                                 <i class="fa fa-pencil-alt"> Edit </i>
                                             </a>
-                                            <form action="/admin/arena/{{ $arena->id }}" class="d-inline"
-                                                method="POST">
+                                            <form action="/admin/arena/{{ $arena->id }}" class="d-inline" method="POST">
                                                 @csrf
                                                 @method('delete')
                                                 <button class="btn btn-danger"

@@ -26,6 +26,11 @@
                 <form action="{{ route('arena.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
+                        <label for="nama">Nama</label>
+                        <input type="text" name="nama" class="form-control" id="nama" value="{{ old('nama') }}"
+                            aria- describedby="nama">
+                    </div>
+                    <div class="form-group">
                         <label for="exampleFormControlSelect1">Jenis Arena</label>
                         <select class="form-control" id="jenis_id" name="jenis_id">
                             @foreach ($jenisLap as $jenis)

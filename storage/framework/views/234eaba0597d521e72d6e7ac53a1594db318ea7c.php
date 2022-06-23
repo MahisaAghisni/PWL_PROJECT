@@ -1,7 +1,8 @@
 <div class="modal inmodal fade" id="addModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-xs">
-        <form name="form_add" id="form_add" class="form-horizontal" action="<?php echo e(route('booking.store')); ?>" method="POST" enctype="multipart/form-data">
-        <?php echo csrf_field(); ?>
+        <form name="form_add" id="form_add" class="form-horizontal" action="<?php echo e(route('booking.store')); ?>" method="POST"
+            enctype="multipart/form-data">
+            <?php echo csrf_field(); ?>
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title" style="color:black">Pesan Lapangan</h4>
@@ -9,7 +10,7 @@
                         <span aria-hidden="true">&times;</span>
                         <span class="sr-only">Close</span>
                     </button>
-                    
+
                 </div>
                 <div class="modal-body">
                     <div class="form-group mb-2">
@@ -21,10 +22,10 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>"
-                            id="date" name="date" value="<?php echo e(old('date')); ?>" />
+unset($__errorArgs, $__bag); ?>" id="date"
+                            name="date" value="<?php echo e(old('date')); ?>" />
                     </div>
-                </div> 
+                </div>
                 <div class="modal-body">
                     <div class="form-group mb-2">
                         <label for="start_time"><?php echo e(__('Jam Mulai')); ?></label>
@@ -36,10 +37,10 @@ $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>"
-                            id="start_time" name="start_time" value="<?php echo e(old('start_time')); ?>" />
+                            id="start_time" name="start_time" value="<?php echo e(old('start_time')); ?>">
                     </div>
                 </div>
-                
+
                 <div class="modal-body">
                     <div class="form-group mb-2">
                         <label for="end_time"><?php echo e(__('Jam Selesai')); ?></label>
@@ -54,7 +55,7 @@ unset($__errorArgs, $__bag); ?>"
                             id="end_time" name="end_time" value="<?php echo e(old('end_time')); ?>" />
                     </div>
                 </div>
-                
+
                 <input type="hidden" id="arenas_id" name="arenas_id" value="<?php echo e($arenas->id); ?>">
                 <div class="modal-footer">
                     <button type="button" class="btn btn-white" data-dismiss="modal">Tutup</button>
@@ -63,4 +64,5 @@ unset($__errorArgs, $__bag); ?>"
             </div>
         </form>
     </div>
-</div><?php /**PATH C:\xampp\htdocs\PWL_PROJECT\resources\views/customer/lapangan/modal/addModal.blade.php ENDPATH**/ ?>
+</div>
+<?php /**PATH C:\xampp\htdocs\PWL_PROJECT\resources\views/customer/lapangan/modal/addModal.blade.php ENDPATH**/ ?>

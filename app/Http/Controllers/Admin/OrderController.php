@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\DetailTransaction;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
     //
+
     public function belumDiBayar()
     {
         $transactions = Transaction::where('status_id', 1)->get();

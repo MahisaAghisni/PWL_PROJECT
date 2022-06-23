@@ -96,13 +96,17 @@
                 </a>
                 <div class="collapse" id="auth">
                     <ul class="nav flex-column sub-menu">
-                        <li class="nav-item"> <a class="nav-link" href="{{ route('transaksi.pending') }}"> Status
-                                Pending
-                            </a></li>
-                        <li class="nav-item"> <a class="nav-link" href="{{ route('register') }}">
-                                Status Booking </a></li>
-                        <li class="nav-item"> <a class="nav-link" href="{{ route('register') }}">
-                                Status Selesai </a></li>
+                        <li class="nav-item"> <a class="nav-link" href="{{ route('transaksi.belumDiBayar') }}">
+                                Belum Di Bayar </a></li>
+                        <li class="nav-item"> <a class="nav-link" href="{{ route('transaksi.booking') }}">
+                                Booking </a>
+                        </li>
+                        <li class="nav-item"> <a class="nav-link" href="{{ route('transaksi.selesai') }}">
+                                Selesai </a>
+                        </li>
+                        <li class="nav-item"> <a class="nav-link" href="{{ route('transaksi.dibatalkan') }}">
+                                Batal </a>
+                        </li>
                     </ul>
                 </div>
             </li>

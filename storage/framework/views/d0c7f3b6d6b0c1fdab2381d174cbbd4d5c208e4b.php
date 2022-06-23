@@ -41,8 +41,7 @@
                                             <a href="<?php echo e(route('arena.edit', $arena->id)); ?>" class="btn btn-info">
                                                 <i class="fa fa-pencil-alt"> Edit </i>
                                             </a>
-                                            <form action="/admin/arena/<?php echo e($arena->id); ?>" class="d-inline"
-                                                method="POST">
+                                            <form action="/admin/arena/<?php echo e($arena->id); ?>" class="d-inline" method="POST">
                                                 <?php echo csrf_field(); ?>
                                                 <?php echo method_field('delete'); ?>
                                                 <button class="btn btn-danger"

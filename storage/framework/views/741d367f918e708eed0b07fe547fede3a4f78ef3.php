@@ -24,6 +24,11 @@
                 <form action="<?php echo e(route('arena.store')); ?>" method="POST" enctype="multipart/form-data">
                     <?php echo csrf_field(); ?>
                     <div class="form-group">
+                        <label for="nama">Nama</label>
+                        <input type="text" name="nama" class="form-control" id="nama" value="<?php echo e(old('nama')); ?>"
+                            aria- describedby="nama">
+                    </div>
+                    <div class="form-group">
                         <label for="exampleFormControlSelect1">Jenis Arena</label>
                         <select class="form-control" id="jenis_id" name="jenis_id">
                             <?php $__currentLoopData = $jenisLap; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $jenis): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
