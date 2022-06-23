@@ -71,6 +71,18 @@
                                                         </div>
                                                     </div>
                                                 </li>
+                                                <li>
+                                                    <?php
+                                                    $total_order = DB::table('bookings')
+                                                        ->select(DB::raw('count(id) as jumlah'))
+                                                        ->where('users_id', Auth::user()->id)
+                                                        ->first();
+                                                    ?>
+                                                    <a href="{{ route('order.index') }}" class="site-cart">
+                                                        <span class="icon icon-shopping_cart"></span>
+                                                        <span class="count">{{ $total_order->jumlah }}</span>
+                                                    </a>
+                                                </li>
                                             @else
                                                 <div class="dropdown">
                                                     <a class="dropdown-toggle" id="dropdownMenuButton"

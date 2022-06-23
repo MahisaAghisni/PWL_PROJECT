@@ -24,7 +24,7 @@ class BookingController extends Controller
     public function bookingStore(Request $request)
     {
         //
-        $transactions = Transaction::where('arenas_id', $request->arenas_id)->where('status_id', 3)->first();
+        $transactions = Transaction::where('arenas_id', $request->arenas_id)->where('status_id', 2)->first();
 
         $request->validate([
             'start_time' => 'required',
@@ -32,11 +32,12 @@ class BookingController extends Controller
             'date' => 'required',
         ]);
 
+        // if ($transactions != null) {
+        //     if (($transactions->date && $transactions->start_time) == ($request->date && $request->start_time)) {
 
-        if (($transactions->date && $transactions->start_time) == ($request->date && $request->start_time)) {
-
-            return redirect()->route('booking.error');
-        }
+        //         return redirect()->route('booking.error');
+        //     }
+        // }
 
         Booking::create([
             'users_id' => Auth::user()->id,

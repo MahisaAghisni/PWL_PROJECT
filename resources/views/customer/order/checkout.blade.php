@@ -30,10 +30,15 @@
                                             <?php
                                             $sub_total = 0;
                                             $hour = date('h', strtotime(Carbon\Carbon::parse($bookings->end_time)->format('H:i:s'))) - date('h', strtotime(Carbon\Carbon::parse($bookings->start_time)->format('H:i:s')));
+
+                                            if($hour < 1)
+                                            {
+                                                $hour = date('h', strtotime(Carbon\Carbon::parse($bookings->start_time)->format('H:i:s'))) - date('h', strtotime(Carbon\Carbon::parse($bookings->end_time)->format('H:i:s')));
+                                            }
                                             ?>
                                             <tr>
                                                 <td>{{ $bookings->arenas->jenis->name }} <strong
-                                                        class="mx-2">x</strong>Lapangan {{ $bookings->arenas->id }}
+                                                        class="mx-2">x</strong>{{ $bookings->arenas->nama }}
                                                 </td>
                                                 <td>{{ $hour }} jam</td>
                                             </tr>
@@ -57,14 +62,22 @@
                                         </tbody>
                                     </table>
                                     <div class="form-group">
+                                        <label for="nama">Nama</label>
+                                        <input type="text" name="nama" id="nama" class="form-control">
+                                    </div>
+                                    <div class="form-group">
                                         <label for="no_hp">No telepon yang bisa dihubungi</label>
                                         <input type="text" name="no_hp" id="no_hp" class="form-control">
                                     </div>
+                                    
+                                    <input type="hidden" name="date" value="{{ $bookings->date }}">
+                                    <input type="hidden" name="start_time" value="{{ $bookings->start_time }}">
+                                    <input type="hidden" name="end_time" value="{{ $bookings->end_time }}">
                                     <input type="hidden" name="sub_total" value="{{ $total }}">
-                                    <input type="hidden" name="ongkir" value="">
+                                    <input type="hidden" name="arenas_id" value="{{ $bookings->arenas_id }}">
                                     <div class="form-group">
                                         <label for="">Pilih Metode Pembayaran</label>
-                                        <select name="metode_pembayaran" id="metode_pembayaran" class="form-control">
+                                        <select name="metode_pembayaran" class="form-control">
                                             <option value="transfer">Transfer</option>
                                             <option value="bayar di tempat">Bayar Di Tempat</option>
                                         </select>

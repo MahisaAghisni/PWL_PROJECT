@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Customer;
 
 use App\Http\Controllers\Controller;
 use App\Models\Booking;
+use App\Models\Rekening;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,7 +17,7 @@ class TransactionController extends Controller
         //
         $bookings = Booking::with('arenas')->where('users_id', Auth::user()->id)->get();
 
-        $transactions = Transaction::where('users_id', Auth::user()->id)->get();
+        $transactions = Transaction::with('status', 'arenas')->where('users_id', Auth::user()->id)->get();
 
         // dd($bookings);
 
@@ -75,7 +76,7 @@ class TransactionController extends Controller
     public function bayar($id)
     {
         $transactions = Transaction::findOrFail($id);
-        // $rekenings = Rekening::all();
+        $rekenings = Rekening::all();
 
         return view('customer.order.bayar', compact('rekenings', 'transactions'));
     }
