@@ -26,18 +26,18 @@
                 <form action="{{ route('jenis.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
-                        <label for="nama">Nama</label>
+                        <label for="nama"> Nama </label>
                         <input type="text" name="nama" class="form-control" id="nama" aria-describedby="nama">
                     </div>
                     <div class="form-group">
-                        <label for="deskripsi">Deskripsi</label>
+                        <label for="deskripsi"> Deskripsi </label>
                         <textarea name="deskripsi" class="form-control" id="deskripsi" deskripsi cols="30" rows="10"></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="images">Gambar</label>
+                        <label for="images"> Gambar </label>
                         <input type="file" class="form-control" required="required" name="images">
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                    <button type="submit" class="btn btn-primary btn-block"> Submit </button>
                 </form>
             </div>
         </div>
