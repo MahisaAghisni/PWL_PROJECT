@@ -6,6 +6,7 @@ use App\Http\Controllers\Customer\HomeController;
 use App\Http\Controllers\Customer\DaftarLapController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\RekeningController;
 use App\Http\Controllers\Customer\BookingController;
 use App\Http\Controllers\Customer\TransactionController;
 
@@ -103,7 +104,7 @@ Route::group(['middleware' => ['auth', 'CheckRole:admin']], function () {
     //     Route::get('/admin/jenis/create', 'create')->name('admin.jenis.create');
     //     Route::post('/admin/jenis/store', 'store')->name('admin.jenis.store');
     //     Route::post('/admin/jenis/update/{id}', 'update')->name('admin.jenis.update');
-    // 
+    //
     //});
 });
 

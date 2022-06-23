@@ -13,5 +13,4 @@ class Rekening extends Model
     [
         'id', 'nama', 'nama_bank', 'no_rekening'
     ];
-
 }

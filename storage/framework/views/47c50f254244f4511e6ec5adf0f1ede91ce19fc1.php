@@ -71,6 +71,14 @@
                     </ul>
                 </div>
             </li>
+            <li class="nav-item menu-items">
+                <a class="nav-link" href="<?php echo e(route('admin.rekening')); ?>">
+                    <span class="menu-icon">
+                        <i class="mdi mdi-speedometer"></i>
+                    </span>
+                    <span class="menu-title">Rekening</span>
+                </a>
+            </li>
             
         </ul>
     </nav>
