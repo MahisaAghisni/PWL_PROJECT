@@ -36,13 +36,13 @@
 
                         <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
                             <div class="site-logo">
-                                <a href="index.html" class="js-logo-clone">Futsal Sport Centre</a>
+                                <a href="index.html" class="js-logo-clone">Futsal Sport Center</a>
                             </div>
                         </div>
 
                         <div class="col-6 col-md-4 order-3 order-md-3 text-right">
                             <div class="top-right links">
-                                <div class="site-top-icons">
+                                <div class="site-top-icons" width="300px">
                                     <ul>
                                         <?php if(Route::has('login')): ?>
                                             <?php if(auth()->guard()->check()): ?>
