@@ -16,7 +16,9 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="<?php echo e(route('home')); ?>">Home</a></li>
-                        <li class="breadcrumb-item"><a href="<?php echo e(route('detail-lapangan',$arenas->jenis_id)); ?>"><?php echo e($arenas->jenis->nama); ?></a></li>
+                        <li class="breadcrumb-item"><a
+                                href="<?php echo e(route('detail-lapangan', $arenas->jenis_id)); ?>"><?php echo e($arenas->jenis->nama); ?></a>
+                        </li>
                         <li class="breadcrumb-item active" aria-current="page"><?php echo e($arenas->nama); ?></li>
                     </ol>
                 </nav>
@@ -50,9 +52,15 @@
                                         <?php $__currentLoopData = $transactions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $transaction): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                             <tr>
                                                 <td><?php echo e($transaction->nama); ?></td>
-                                                <td><?php echo e($transaction->date); ?></td>
-                                                <td><?php echo e($transaction->start_time); ?></td>
-                                                <td><?php echo e($transaction->end_time); ?></td>
+                                                <td><?php echo e(date('d-m-Y', strtotime(\Carbon\Carbon::parse($transaction->start_time)))); ?>
+
+                                                </td>
+                                                <td><?php echo e(date('H:i:s', strtotime(\Carbon\Carbon::parse($transaction->start_time)))); ?>
+
+                                                </td>
+                                                <td><?php echo e(date('H:i:s', strtotime(\Carbon\Carbon::parse($transaction->end_time)))); ?>
+
+                                                </td>
                                                 <td>
                                                     <a href="" class="btn btn-outline-warning disabled">
                                                         <?php echo e($transaction->status->nama); ?>

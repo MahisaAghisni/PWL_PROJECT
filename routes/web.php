@@ -58,6 +58,7 @@ Route::middleware(['CheckRole:customer', 'auth'])->group(function () {
         Route::get('/order/bayar/{id}', 'bayar')->name('order.bayar');
         Route::post('/order/bayar/store/{id}', 'kirimBuktiPembayaran')->name('order.bayar.store');
         Route::get('/order/details/{id}', 'details')->name('order.details');
+        Route::get('/order/cetakpdf/{id}', 'cetak_pdf')->name('order.pdf');
     });
 });
 

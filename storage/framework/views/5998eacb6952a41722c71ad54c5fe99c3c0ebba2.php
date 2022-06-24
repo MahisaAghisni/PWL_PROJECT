@@ -49,17 +49,26 @@
                                     <tr>
                                         <td>Tanggal</td>
                                         <td>:</td>
-                                        <td class="p-2"><?php echo e($transactions->date); ?></td>
+                                        <td class="p-2">
+                                            <?php echo e(date('d-m-Y', strtotime(\Carbon\Carbon::parse($transactions->start_time)))); ?>
+
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>Waktu Mulai</td>
                                         <td>:</td>
-                                        <td class="p-2"><?php echo e($transactions->start_time); ?></td>
+                                        <td class="p-2">
+                                            <?php echo e(date('H:i:s', strtotime(\Carbon\Carbon::parse($transactions->start_time)))); ?>
+
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>Waktu Selesai</td>
                                         <td>:</td>
-                                        <td class="p-2"><?php echo e($transactions->end_time); ?></td>
+                                        <td class="p-2">
+                                            <?php echo e(date('H:i:s', strtotime(\Carbon\Carbon::parse($transactions->end_time)))); ?>
+
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>Total</td>

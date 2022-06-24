@@ -28,11 +28,9 @@
                                         <tbody>
                                             <?php
                                             $sub_total = 0;
-                                            $hour = date('h', strtotime(Carbon\Carbon::parse($bookings->end_time)->format('H:i:s'))) - date('h', strtotime(Carbon\Carbon::parse($bookings->start_time)->format('H:i:s')));
-
-                                            if($hour < 1)
-                                            {
-                                                $hour = date('h', strtotime(Carbon\Carbon::parse($bookings->start_time)->format('H:i:s'))) - date('h', strtotime(Carbon\Carbon::parse($bookings->end_time)->format('H:i:s')));
+                                            $hour = date('H', strtotime(Carbon\Carbon::parse($bookings->end_time)->format('H:i:s'))) - date('H', strtotime(Carbon\Carbon::parse($bookings->start_time)->format('H:i:s')));
+                                            if ($hour < 1) {
+                                                $hour = date('H', strtotime(Carbon\Carbon::parse($bookings->start_time)->format('H:i:s'))) - date('H', strtotime(Carbon\Carbon::parse($bookings->end_time)->format('H:i:s')));
                                             }
                                             ?>
                                             <tr>
@@ -69,8 +67,7 @@
                                         <label for="no_hp">No telepon yang bisa dihubungi</label>
                                         <input type="text" name="no_hp" id="no_hp" class="form-control">
                                     </div>
-                                    
-                                    <input type="hidden" name="date" value="<?php echo e($bookings->date); ?>">
+
                                     <input type="hidden" name="start_time" value="<?php echo e($bookings->start_time); ?>">
                                     <input type="hidden" name="end_time" value="<?php echo e($bookings->end_time); ?>">
                                     <input type="hidden" name="sub_total" value="<?php echo e($total); ?>">

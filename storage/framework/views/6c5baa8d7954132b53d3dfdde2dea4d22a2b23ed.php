@@ -1,14 +1,19 @@
+
 <?php $__env->startSection('content'); ?>
     <div class="site-blocks-cover" style="background-image: url(<?php echo e(asset('shopper')); ?>/images/bg-image2.jpg);"
         data-aos="fade">
         <div class="container">
             <div class="row align-items-start align-items-md-center justify-content-end">
                 <div class="col-md-5 text-center text-md-left pt-5 pt-md-0">
-                    <h1 class="mb-2">Booking Lapangan Olahraga Jadi Lebih Mudah</h1>
+                    <h1 class="mb-2">Booking Lapangan Futsal Jadi Lebih Mudah</h1>
                     <div class="intro-text text-center text-md-left">
-                        <p class="mb-4">Cari jadwal lapangan dan aktivitas olahraga tanpa harus keluar rumah</p>
+                        <p class="mb-4">Cari jadwal dan jenis lapangan apa yang kamu senangi.
+                            Website ini akan memudahkan kamu untuk lebih cepat dalam membooking lapangan.
+                            Banyak pilihan jenis lapangan yang banyak disenangi oleh orang-orang.
+                            Dan Sekarang kamu bisa membooking lapangan itu tanpa repot harus keluar rumah dan pastinnya lebih cepat.
+                            Jadi tunggu apalagi? </p>
                         <p>
-                            <a href="<?php echo e(route('daftar-lap')); ?>" class="btn btn-sm btn-primary">Jelajahi Sekarang</a>
+                            <a href="<?php echo e(route('daftar-lap')); ?>" class="btn btn-sm btn-primary">Booking Sekarang</a>
                         </p>
                     </div>
                 </div>

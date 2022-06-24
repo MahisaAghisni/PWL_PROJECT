@@ -1,3 +1,4 @@
+
 <?php $__env->startSection('content'); ?>
     <div class="bg-light py-3">
         <div class="container">
@@ -41,9 +42,11 @@
 
                 <div class="deskripsi">
                     <h2 style="color: black; margin-top: 30px;">Deskripsi</h2>
-                    <p style="color: black">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates neque error
-                        molestias aliquam esse facilis inventore sunt ab aspernatur porro vero, doloribus ut natus
-                        asperiores minima! Voluptate assumenda libero quas!</p>
+                    <p style="color: black">Silahkan memilih jenis lapangan futsal yang kamu minati
+                        dan bikin kamu nyaman,iyaa senyaman kamu waktu bersamanya!.
+                        Banyak jenis lapangan yang bisa kamu pilih, kita menyediakan jenis lapangan yang aman,nyaman,dan yang pasti
+                        enak buat kamu untuk bermain futsal,
+                        Dan ingat yaa! pilih lapangan yang sesuai dengan kemauan bersama dan yang paling penting pilih sesuai budget kamu! </p>
                 </div>
 
             </div>
