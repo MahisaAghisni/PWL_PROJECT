@@ -37,24 +37,28 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @if(count($transactions))               
+                                    @if (count($transactions))
                                         @foreach ($transactions as $transaction)
-                                                <tr>
-                                                    <td>{{ $transaction->nama }}</td>
-                                                    <td>{{ $transaction->date }}</td>
-                                                    <td>{{ $transaction->start_time }}</td>
-                                                    <td>{{ $transaction->end_time }}</td>
-                                                    <td>
-                                                        <a href="" class="btn btn-outline-warning disabled">
-                                                            Batal
-                                                        </a>
-                                                    </td>
-                                                    <td>
-                                                        <a href="{{ route('transaksi.detail',$transaction->id) }}" class="btn btn-outline-success">
-                                                            detail
-                                                        </a>
-                                                    </td>
-                                                </tr>                                      
+                                            <tr>
+                                                <td>{{ $transaction->nama }}</td>
+                                                <td>{{ date('d-m-Y', strtotime(Carbon\Carbon::parse($transaction->start_time))) }}
+                                                </td>
+                                                <td>{{ date('H:i:s', strtotime(Carbon\Carbon::parse($transaction->start_time))) }}
+                                                </td>
+                                                <td>{{ date('H:i:s', strtotime(Carbon\Carbon::parse($transaction->end_time))) }}
+                                                </td>
+                                                <td>
+                                                    <a href="" class="btn btn-outline-warning disabled">
+                                                        Batal
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a href="{{ route('transaksi.detail', $transaction->id) }}"
+                                                        class="btn btn-outline-success">
+                                                        detail
+                                                    </a>
+                                                </td>
+                                            </tr>
                                         @endforeach
                                     @else
                                         <tr>

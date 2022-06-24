@@ -7,6 +7,7 @@ use App\Models\Booking;
 use App\Models\Rekening;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
+use PDF;
 use Illuminate\Support\Facades\Auth;
 
 class TransactionController extends Controller
@@ -17,7 +18,7 @@ class TransactionController extends Controller
         //
         $bookings = Booking::with('arenas')->where('users_id', Auth::user()->id)->get();
 
-        $transactions = Transaction::with('status', 'arenas')->where('users_id', Auth::user()->id)->get();
+        $transactions = Transaction::where('users_id', Auth::user()->id)->get();
 
         // dd($bookings);
 
@@ -35,15 +36,18 @@ class TransactionController extends Controller
     {
         $bookings = Booking::findOrFail($id);
 
+        $start_time = date('Y-m-d H:i:s', strtotime("$bookings->date $bookings->start_time"));
+
+        $end_time = date('Y-m-d H:i:s', strtotime("$bookings->date $bookings->end_time"));
+
         if ($request->metode_pembayaran == 'transfer') {
 
             Transaction::create([
                 'users_id' => Auth::user()->id,
                 'invoice' => 'ALV' . date('Ymdhi'),
                 'nama' => $request->nama,
-                'date' => $request->date,
-                'start_time' => $request->start_time,
-                'end_time' => $request->end_time,
+                'start_time' => $start_time,
+                'end_time' => $end_time,
                 'status_id' => 1,
                 'sub_total' => $request->sub_total,
                 'no_hp' => $request->no_hp,
@@ -56,9 +60,8 @@ class TransactionController extends Controller
                 'users_id' => Auth::user()->id,
                 'invoice' => 'ALV' . date('Ymdhi'),
                 'nama' => $request->nama,
-                'date' => $request->date,
-                'start_time' => $request->start_time,
-                'end_time' => $request->end_time,
+                'start_time' => $start_time,
+                'end_time' => $end_time,
                 'status_id' => 2,
                 'sub_total' => $request->sub_total,
                 'no_hp' => $request->no_hp,
@@ -68,7 +71,7 @@ class TransactionController extends Controller
             ]);
         }
 
-        Booking::where('users_id', Auth::user()->id)->delete();
+        Booking::where('id', $bookings->id)->delete();
 
         return redirect()->route('order.index');
     }
@@ -99,5 +102,11 @@ class TransactionController extends Controller
         $transactions = Transaction::findOrFail($id);
 
         return view('customer.order.details', compact('transactions'));
+    }
+    public function cetak_pdf($id)
+    {
+        $transactions = Transaction::findOrFail($id);
+        $pdf = PDF::loadview('customer.order.pdf', ['transactions' => $transactions]);
+        return $pdf->stream();
     }
 }
