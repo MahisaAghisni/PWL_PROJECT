@@ -16,14 +16,14 @@
                     <div class="form-group mb-2">
                         <label for="date">pilih tanggal booking</label>
                         <input type="date" class="form-control @error('date') is-invalid @enderror" id="date"
-                            name="date" value="{{ old('date') }}" />
+                            name="date" value="{{ $jadwals }}" />
                     </div>
                 </div>
                 <div class="modal-body">
                     <div class="form-group mb-2">
                         <label for="start_time">{{ __('Jam Mulai') }}</label>
                         <input type="time" class="form-control @error('start_time') is-invalid @enderror"
-                            id="start_time" name="start_time" value="{{ old('start_time') }}">
+                            id="start_time" name="start_time" value="{{ old('start_time') }}" />
                     </div>
                 </div>
 

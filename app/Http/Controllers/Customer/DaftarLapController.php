@@ -36,7 +36,7 @@ class DaftarLapController extends Controller
         $arenas = Arena::with('jenis')->findOrFail($id);
 
         $jadwals = $request->jadwals;
-        $transactions = Transaction::whereDate('date', 'like', "%" . $jadwals . "%")->where('arenas_id', $arenas->id)->where('status_id', 2)->get();
+        $transactions = Transaction::whereDate('start_time', 'like', "%" . $jadwals . "%")->where('arenas_id', $arenas->id)->where('status_id', 2)->get();
 
 
         // dd($lapangans,$jadwals);
