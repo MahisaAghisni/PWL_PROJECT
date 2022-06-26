@@ -72,9 +72,15 @@
                                         <?php $__currentLoopData = $transaksi_terbaru; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $transaction): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                             <tr>
                                                 <td><?php echo e($transaction->nama); ?></td>
-                                                <td><?php echo e($transaction->date); ?></td>
-                                                <td><?php echo e($transaction->start_time); ?></td>
-                                                <td><?php echo e($transaction->end_time); ?></td>
+                                                <td><?php echo e(date('d-m-Y', strtotime(Carbon\Carbon::parse($transaction->start_time)))); ?>
+
+                                                </td>
+                                                <td><?php echo e(date('H:i:s', strtotime(Carbon\Carbon::parse($transaction->start_time)))); ?>
+
+                                                </td>
+                                                <td><?php echo e(date('H:i:s', strtotime(Carbon\Carbon::parse($transaction->end_time)))); ?>
+
+                                                </td>
                                                 <?php if($transaction->bukti_pembayaran != null): ?>
                                                     <td>
                                                         <a href="" class="btn btn-outline-warning disabled">
@@ -99,7 +105,7 @@
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     <?php else: ?>
                                         <tr>
-                                            <td colspan="5" align="center">Tidak ada data</td>
+                                            <td colspan="4" align="center">Tidak ada data</td>
                                         </tr>
                                     <?php endif; ?>
 
