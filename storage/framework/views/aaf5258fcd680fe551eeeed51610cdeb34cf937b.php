@@ -37,33 +37,40 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php if(count($transactions)): ?>               
+                                    <?php if(count($transactions)): ?>
                                         <?php $__currentLoopData = $transactions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $transaction): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                <tr>
-                                                    <td><?php echo e($transaction->nama); ?></td>
-                                                    <td><?php echo e($transaction->date); ?></td>
-                                                    <td><?php echo e($transaction->start_time); ?></td>
-                                                    <td><?php echo e($transaction->end_time); ?></td>
-                                                    <?php if($transaction->bukti_pembayaran != null): ?>
-                                                        <td>
-                                                            <a href="" class="btn btn-outline-warning disabled">
-                                                                menunggu konfirmasi
-                                                            </a>
-                                                        </td>
-                                                    <?php else: ?>
-                                                        <td>
-                                                            <a href="" class="btn btn-outline-warning disabled">
-                                                                <?php echo e($transaction->status->nama); ?>
+                                            <tr>
+                                                <td><?php echo e($transaction->nama); ?></td>
+                                                <td><?php echo e(date('d-m-Y', strtotime(Carbon\Carbon::parse($transaction->start_time)))); ?>
 
-                                                            </a>
-                                                        </td>      
-                                                    <?php endif; ?>
+                                                </td>
+                                                <td><?php echo e(date('H:i:s', strtotime(Carbon\Carbon::parse($transaction->start_time)))); ?>
+
+                                                </td>
+                                                <td><?php echo e(date('H:i:s', strtotime(Carbon\Carbon::parse($transaction->end_time)))); ?>
+
+                                                </td>
+                                                <?php if($transaction->bukti_pembayaran != null): ?>
                                                     <td>
-                                                        <a href="<?php echo e(route('transaksi.detail',$transaction->id)); ?>" class="btn btn-outline-success">
-                                                            detail
+                                                        <a href="" class="btn btn-outline-warning disabled">
+                                                            menunggu konfirmasi
                                                         </a>
                                                     </td>
-                                                </tr>                                      
+                                                <?php else: ?>
+                                                    <td>
+                                                        <a href="" class="btn btn-outline-warning disabled">
+                                                            <?php echo e($transaction->status->nama); ?>
+
+                                                        </a>
+                                                    </td>
+                                                <?php endif; ?>
+                                                <td>
+                                                    <a href="<?php echo e(route('transaksi.detail', $transaction->id)); ?>"
+                                                        class="btn btn-outline-success">
+                                                        detail
+                                                    </a>
+                                                </td>
+                                            </tr>
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     <?php else: ?>
                                         <tr>
