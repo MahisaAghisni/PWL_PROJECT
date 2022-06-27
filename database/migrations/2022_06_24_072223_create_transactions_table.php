@@ -15,8 +15,8 @@ class CreateTransactionsTable extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('users_id');
-            $table->unsignedBigInteger('arenas_id');
+            $table->foreignId('users_id')->constrained();
+            $table->foreignId('arenas_id')->constrained();
             $table->string('invoice');
             $table->integer('sub_total');
             $table->string('nama');
@@ -24,6 +24,7 @@ class CreateTransactionsTable extends Migration
             $table->dateTime('start_time');
             $table->dateTime('end_time');
             $table->unsignedBigInteger('status_id');
+            $table->foreign('status_id')->references('id')->on('status_transactions');
             $table->string('bukti_pembayaran')->nullable();
             $table->timestamps();
         });

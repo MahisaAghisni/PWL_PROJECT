@@ -15,7 +15,7 @@ class CreateArenasTable extends Migration
     {
         Schema::create('arenas', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('jenis_id');
+            $table->foreignId('jenis_id')->constrained();
             $table->integer('price');
             $table->string('image')->nullable();
             $table->timestamps();
