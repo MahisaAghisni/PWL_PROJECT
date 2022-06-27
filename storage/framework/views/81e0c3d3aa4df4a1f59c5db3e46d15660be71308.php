@@ -1,3 +1,5 @@
+
+
 <?php $__env->startSection('content'); ?>
     <div class="container-fluid">
         <!-- Content Row -->
@@ -12,7 +14,7 @@
                         <span class="icon text-white-50">
                             <i class="fa fa-plus"></i>
                         </span>
-                        <span class="text">New Jenis</span>
+                        <span class="text"> New Jenis </span>
                     </a>
                 </div>
             </div>
@@ -21,11 +23,11 @@
                     <table class="table table-bordered table-striped table-hover" cellspacing="0" width="100%">
                         <thead>
                             <tr>
-                                <th>No</th>
-                                <th>Nama</th>
-                                <th>Deskrpisi</th>
-                                <th>Gambar</th>
-                                <th>Action</th>
+                                <th> No </th>
+                                <th> Nama </th>
+                                <th> Deskrpisi </th>
+                                <th> Gambar </th>
+                                <th> Action </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -47,7 +49,7 @@
                                                 <?php echo method_field('delete'); ?>
                                                 <button class="btn btn-danger"
                                                     style="border-top-left-radius: 0;border-bottom-left-radius: 0;">
-                                                    <i class="fa fa-trash">Delete</i>
+                                                    <i class="fa fa-trash"> Delete </i>
                                                 </button>
                                             </form>
                                         </div>

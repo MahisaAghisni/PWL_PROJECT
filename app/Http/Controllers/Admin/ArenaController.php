@@ -51,7 +51,7 @@ class ArenaController extends Controller
 
         $images = [
             'nama' => 'required',
-            'price' => 'required',
+            'price' => 'required|numeric',
             'jenis_id' => 'required',
             'image' => 'image|file',
 
@@ -107,7 +107,7 @@ class ArenaController extends Controller
 
         $rules = [
             'nama' => 'required',
-            'price' => 'required',
+            'price' => 'required|numeric',
             'jenis_id' => 'required',
             'image' => 'required',
         ];

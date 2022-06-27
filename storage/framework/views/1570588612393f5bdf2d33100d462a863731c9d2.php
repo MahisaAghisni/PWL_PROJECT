@@ -1,3 +1,5 @@
+
+
 <?php $__env->startSection('content'); ?>
     <div class="container-fluid">
 
@@ -26,22 +28,22 @@
                     <?php echo csrf_field(); ?>
                     <?php echo method_field('PUT'); ?>
                     <div class="form-group">
-                        <label for="nama">Nama</label>
+                        <label for="nama"> Nama </label>
                         <input type="text" name="nama" class="form-control" id="nama" value="<?php echo e($jenis->nama); ?>" aria-
                             describedby="nama">
                     </div>
                     <div class="form-group">
-                        <label for="deskripsi">Deskripsi</label>
+                        <label for="deskripsi"> Deskripsi </label>
                         <input type="text" name="deskripsi" class="form-control" id="deskripsi"
                             value="<?php echo e($jenis->deskripsi); ?>" aria- describedby="deskripsi">
                     </div>
                     <div class="form-group">
-                        <label for="images">Gambar</label>
+                        <label for="images"> Gambar </label>
                         <input type="file" class="form-control" required="required" name="images"
                             value="<?php echo e($jenis->images); ?>">
                         <img width="150px" src="<?php echo e(asset('storage/' . $jenis->images)); ?>">
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">Save</button>
+                    <button type="submit" class="btn btn-primary btn-block"> Save </button>
                 </form>
             </div>
         </div>

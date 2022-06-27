@@ -1,3 +1,5 @@
+
+
 <?php $__env->startSection('content'); ?>
     <div class="container-fluid">
 
@@ -27,7 +29,12 @@
                     <?php echo csrf_field(); ?>
                     <?php echo method_field('PUT'); ?>
                     
-                    <label for="exampleFormControlSelect1">Jenis Arena</label>
+                    <div class="form-group">
+                        <label for="nama"> Nama </label>
+                        <input type="text" name="nama" class="form-control" id="nama"
+                            value="<?php echo e($arena->nama); ?>" aria- describedby="nama">
+                    </div>
+                    <label for="exampleFormControlSelect1"> Jenis Arena </label>
                     <select class="form-control" id="jenis_id" name="jenis_id">
                         <?php $__currentLoopData = $jenisLap; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $jenis): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <option value="<?php echo e($jenis->id); ?>">
@@ -35,17 +42,17 @@
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </select>
                     <div class="form-group">
-                        <label for="price">Harga</label>
-                        <input type="price" name="price" class="form-control" id="price" value="<?php echo e($arena->price); ?>"
-                            aria- describedby="price">
+                        <label for="price"> Harga </label>
+                        <input type="price" name="price" class="form-control" id="price"
+                            value="<?php echo e($arena->price); ?>" aria- describedby="price">
                     </div>
                     <div class="form-group">
-                        <label for="image">Gambar</label>
+                        <label for="image"> Gambar </label>
                         <input type="file" class="form-control" required="required" name="image"
                             value="<?php echo e($arena->image); ?>">
                         <img width="150px" src="<?php echo e(asset('storage/' . $arena->image)); ?>">
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">Save</button>
+                    <button type="submit" class="btn btn-primary btn-block"> Save </button>
                 </form>
             </div>
         </div>
