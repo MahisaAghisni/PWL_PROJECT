@@ -7,6 +7,7 @@ use App\Models\Arena;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ArenaController extends Controller
 {
@@ -135,6 +136,7 @@ class ArenaController extends Controller
     {
         //
         Arena::find($id)->delete();
-        return redirect()->route('arena.index')->with('success', 'Arena Bershasil Dihapus');
+        Alert::warning('Warning Title', 'Arena Bershasil Dihapus');
+        return redirect()->route('arena.index');
     }
 }

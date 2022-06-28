@@ -45,10 +45,9 @@
                                             <form action="/admin/arena/{{ $arena->id }}" class="d-inline" method="POST">
                                                 @csrf
                                                 @method('delete')
-                                                <button class="btn btn-danger"
-                                                    style="border-top-left-radius: 0;border-bottom-left-radius: 0;">
-                                                    <i class="fa fa-trash"> Delete </i>
-                                                </button>
+                                                <input name="_method" type="hidden" value="DELETE">
+                                                <button type="submit" class="btn btn-danger show_confirm"
+                                                    data-toggle="tooltip" title='Delete'><i></i>Delete</button>
                                             </form>
                                         </div>
                                     </td>
@@ -82,4 +81,28 @@
         </div>
         <!-- Content Row -->
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.js"
+        integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script type="text/javascript">
+        $('.show_confirm').click(function(event) {
+            var form = $(this).closest("form");
+            var name = $(this).data("name");
+            event.preventDefault();
+            swal({
+                    title: `Are you sure you want to delete this record? `,
+                    text: "If you delete this, it will be gone forever.",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        form.submit();
+                    }
+                });
+        });
+    </script>
 @endsection
